@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LumousLab — Features Section</title>
+  <style>
+    :root{
+      --accent:#00f0ff;
+      --accent-2:#22c55e;
+      --card-bg: rgba(12,18,28,0.6);
+      --glass-border: rgba(255,255,255,0.06);
+      --divider: rgba(255,255,255,0.08);
+      --text:#e6eef7;
+      --muted: rgba(230,238,247,0.6);
+    }
+    *{box-sizing:border-box}
+    body{font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; margin:0; color:var(--text); background-color:#061027}
+
+    .section-wrap{
+      min-height:760px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:64px 28px;
+      background-image:
+        linear-gradient(180deg, rgba(6,16,37,0.78), rgba(6,16,37,0.92)),
+        url('images/doodle-bg.png'); /* global doodle background */
+      background-size:cover;
+      background-position:center;
+      background-attachment:fixed;
+    }
+
+    .container{width:100%; max-width:1180px; margin:0 auto;}
+
+    .headline{text-align:center;margin-bottom:40px;}
+    .eyebrow{letter-spacing:2px; text-transform:uppercase; color:var(--muted); font-size:12px; margin-bottom:12px}
+    .title{font-size:38px; font-weight:700; margin:0 0 8px}
+    .sub{color:var(--muted); max-width:780px; margin:0 auto}
+
+    .grid{display:grid; grid-template-columns:1fr 360px 260px; gap:28px; align-items:start}
+
+    .card{
+      border-radius:14px;
+      padding:28px;
+      box-shadow:0 8px 30px rgba(2,6,12,0.6);
+      border:1px solid var(--glass-border);
+      backdrop-filter: blur(6px);
+      background-size:cover;
+      background-position:center;
+      background-repeat:no-repeat;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .card img.bg-img{
+      position:absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      opacity:0.25; /* faint background image inside card */
+      z-index:0;
+    }
+
+    .card > * {position:relative; z-index:1;}
+
+    .compare-list{display:flex; flex-direction:column;}
+    .provider{display:flex; align-items:center; gap:14px; padding:16px 12px; border-radius:0; border-bottom:1px solid var(--divider);}
+    .provider:last-child{border-bottom:none;}
+
+    .provider .logo{width:44px; height:44px; border-radius:8px; background:linear-gradient(135deg,#0ea5a4 0%, #0369a1 100%); display:inline-flex; align-items:center; justify-content:center; font-weight:700}
+    .provider .meta{flex:1}
+    .provider .meta .name{font-weight:700}
+    .provider .meta .price{color:var(--muted); font-size:13px}
+    .cpu-bar{height:10px; background:rgba(255,255,255,0.03); border-radius:999px; overflow:hidden; margin-top:8px}
+    .cpu-fill{height:100%; border-radius:999px}
+
+    .small-card{height:230px; display:flex; flex-direction:column; justify-content:space-between; padding:22px}
+    .small-title{font-weight:700; font-size:18px}
+    .small-desc{color:var(--muted); font-size:14px}
+    .cta{display:inline-block; padding:10px 14px; border-radius:10px; border:1px solid rgba(255,255,255,0.06); text-decoration:none; color:var(--text); font-weight:600}
+
+    .pill{display:inline-block; background:linear-gradient(90deg,#2dd4bf,#06b6d4); color:#042028; padding:6px 10px; border-radius:999px; font-weight:700}
+
+    .decor{position:relative}
+    .decor::after{content:''; position:absolute; right:-20px; top:30px; width:160px; height:160px; border-radius:50%; box-shadow: inset 0 0 0 2px rgba(6,178,255,0.06); transform:rotate(12deg)}
+
+    .bar-green{background:linear-gradient(90deg,#22c55e, #10b981)}
+    .bar-yellow{background:linear-gradient(90deg,#f59e0b,#f97316)}
+    .bar-red{background:linear-gradient(90deg,#ef4444,#f43f5e)}
+    .bar-blue{background:linear-gradient(90deg,#06b6d4,#0ea5a4)}
+
+    @media (max-width:980px){
+      .grid{grid-template-columns:1fr;}
+      .small-card{height:auto}
+      .title{font-size:28px}
+    }
+  </style>
+</head>
+<body>
+  <section class="section-wrap">
+    <div class="container">
+      <header class="headline">
+        <div class="eyebrow">We're LumousLab</div>
+        <h1 class="title">The cloud hosting that actually cares about gamers</h1>
+        <p class="sub">High performance, fair prices, and tools built for community server owners. Compare plans and see why LumousLab is the smarter choice.</p>
+      </header>
+
+      <div class="grid">
+        <!-- Left: comparison card -->
+        <div class="card">
+          <img src="assets/doodle.png" alt="bg" class="bg-img"/>
+          <h3 style="margin:0 0 14px">Better bang for your buck</h3>
+          <div class="compare-list">
+
+            <div class="provider">
+              <div class="logo">LL</div>
+              <div class="meta">
+                <div class="name">LumousLab <span style="color:var(--muted); font-weight:600">(Recommended)</span></div>
+                <div class="price">₹65 / GB</div>
+                <div class="cpu-bar" aria-hidden>
+                  <div class="cpu-fill bar-green" style="width:86%"></div>
+                </div>
+                <div style="font-size:12px; color:var(--muted); margin-top:6px">AMD Ryzen 9 / NVMe</div>
+              </div>
+            </div>
+
+            <div class="provider">
+              <div class="logo" style="background:linear-gradient(135deg,#334155,#0f172a);">WH</div>
+              <div class="meta">
+                <div class="name">WiseHosting</div>
+                <div class="price">₹120 / GB</div>
+                <div class="cpu-bar"><div class="cpu-fill bar-blue" style="width:66%"></div></div>
+                <div style="font-size:12px; color:var(--muted); margin-top:6px">AMD Ryzen 5800X</div>
+              </div>
+            </div>
+
+            <div class="provider">
+              <div class="logo" style="background:linear-gradient(135deg,#122244,#0b1220);">AH</div>
+              <div class="meta">
+                <div class="name">Apex Host</div>
+                <div class="price">₹140 / GB</div>
+                <div class="cpu-bar"><div class="cpu-fill bar-yellow" style="width:50%"></div></div>
+                <div style="font-size:12px; color:var(--muted); margin-top:6px">Intel Xeon E5</div>
+              </div>
+            </div>
+
+            <div class="provider">
+              <div class="logo" style="background:linear-gradient(135deg,#1f2937,#0b1220);">SB</div>
+              <div class="meta">
+                <div class="name">ShockByte</div>
+                <div class="price">₹80 / GB</div>
+                <div class="cpu-bar"><div class="cpu-fill bar-red" style="width:36%"></div></div>
+                <div style="font-size:12px; color:var(--muted); margin-top:6px">Intel E-2236</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Middle: feature card -->
+        <div class="card small-card">
+          <img src="images/bg-noisy.jpg" alt="bg" class="bg-img"/>
+          <div>
+            <div style="display:flex; justify-content:space-between; align-items:center">
+              <div class="small-title">No noisy neighbours</div>
+              <div class="pill">+ SNI</div>
+            </div>
+            <p class="small-desc">Dedicated resources, fair scheduling, and anti-oversell. Your servers run consistently when players log in.</p>
+          </div>
+
+          <div style="display:flex; gap:10px; align-items:center">
+            <a class="cta" href="#">Learn more</a>
+            <div style="flex:1"></div>
+            <img src="images/icon-dedicated.png" alt="icon" style="width:56px;height:56px;border-radius:10px;object-fit:cover;background:rgba(255,255,255,0.02);border:1px solid var(--glass-border)">
+          </div>
+        </div>
+
+        <!-- Right: feature card -->
+        <div class="card small-card">
+          <img src="images/bg-modpack.jpg" alt="bg" class="bg-img"/>
+          <div>
+            <div class="small-title">Any modpack, anytime</div>
+            <p class="small-desc">One-click installs for CurseForge, Modrinth and custom jars. Auto-backups and easy config management.</p>
+          </div>
+
+          <div style="display:flex; gap:10px; align-items:center; justify-content:space-between">
+            <div style="display:flex; gap:8px;">
+              <img src="images/mc1.png" style="width:48px;height:48px;border-radius:8px;object-fit:cover;filter:grayscale(0.06)"/>
+              <img src="images/mc2.png" style="width:48px;height:48px;border-radius:8px;object-fit:cover;filter:grayscale(0.06)"/>
+            </div>
+            <a class="cta" href="#">Create server</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</body>
+</html>
