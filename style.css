@@ -300,7 +300,7 @@ header.hero {
 .hero-left {
   flex: 1;
   max-width: 760px;
-  margin-top: 170px;
+  margin-top: 100px;
   padding: 10px 20px;
   font-size: 1rem; /* 25% bigger than default */
   margin-left: -140px;
@@ -335,9 +335,10 @@ header.hero {
 /* Hero buttons*/
 .ctas {
   display: flex;
-  gap: 14px;
+  gap: 104px;
   align-items: center;
-  margin-bottom: 28px;
+  margin-bottom: 8px;
+  margin-top: 80px;
 }
 
 
@@ -556,6 +557,7 @@ header.hero {
   to   { filter: drop-shadow(0 0 10px rgba(255,80,0,1)); transform: translateY(-1px); }
 }
 
+
 /* features row */
 .feature-row{
   display:flex;
@@ -576,52 +578,43 @@ header.hero {
   transition: transform 420ms cubic-bezier(.2,.9,.25,1), box-shadow 220ms ease, opacity 360ms ease;
   will-change: transform, opacity;
 }
-.f-dot{
-  width:10px; height:10px; border-radius:50%;
-  background: linear-gradient(180deg,#00f0ff,#0099ff);
-  box-shadow:0 6px 18px rgba(0,200,255,0.08);
-  flex:0 0 10px;
+/* Feature layout */
+.feature-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
 }
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Title with icon */
+.f-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+}
+
+/* Icon styling */
+.f-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+/* Subtitle style */
+.f-sub {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
 .f-title{ font-weight:700; color:#eaffff; font-size:13px; }
 .f-sub{ font-size:12px; color: rgba(210,255,255,0.6); margin-top:2px; }
-
-/* rating pill */
-.rating-pill{
-  display:inline-block;
-  margin-top:6px;
-  padding:8px 12px;
-  border-radius:12px;
-  background: rgba(0,0,0,0.45);
-  border:1px solid rgba(255,255,255,0.03);
-  color:#f0fffb;
-  font-weight:600;
-  font-size:13px;
-}
-
-/* right column mini-plan */
-.augment-right{ display:flex; align-items:flex-start; gap:16px; }
-
-.mini-plan{
-  width:220px;
-  padding:14px;
-  border-radius:12px;
-  background: linear-gradient(180deg, rgba(6,14,18,0.75), rgba(6,14,18,0.6));
-  border: 1px solid rgba(0,220,255,0.06);
-  box-shadow: 0 10px 30px rgba(0,180,255,0.04), inset 0 -6px 18px rgba(0,0,0,0.25);
-  text-align:center;
-  transition: transform .18s ease, box-shadow .18s ease, opacity .28s ease;
-  will-change: transform, opacity;
-  opacity: 1;
-}
-.mini-top{ font-size:12px; color:rgba(200,255,255,0.7); font-weight:700; margin-bottom:8px; }
-.mini-icon{ font-size:36px; margin-bottom:8px; filter: drop-shadow(0 8px 18px rgba(0,210,255,0.06)); }
-.mini-price{ font-size:22px; color:#6affea; font-weight:800; margin-bottom:10px; }
-.mini-price small{ font-size:12px; color:rgba(200,255,255,0.6); font-weight:700; }
-.mini-cta{ display:inline-block; padding:10px 18px; border-radius:999px; background: linear-gradient(90deg,#00ffd8,#00aaff); color:#00161a; font-weight:800; text-decoration:none; box-shadow: 0 8px 30px rgba(0,200,255,0.12); }
-
-/* floating icons */
-.float-icons{ position:absolute; right:36px; top:-20px; pointer-events:none; display:flex; gap:12px; }
-.float-icons img.float{ width:48px; height:48px; opacity:0.95; transform:translateY(0); transition:transform .25s ease, filter .25s ease; }
 
 /* ============================
    Liveliness / Motion Effects
@@ -659,21 +652,6 @@ header.hero {
   transition-delay: calc(var(--st, 0ms) + 160ms);
 }
 
-/* feature chips float + hover */
-@keyframes floaty {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
-  100% { transform: translateY(0); }
-}
-.feature:nth-child(1) { animation: floaty 6.5s ease-in-out infinite; animation-delay: 0s; }
-.feature:nth-child(2) { animation: floaty 7.1s ease-in-out infinite; animation-delay: 0.6s; }
-.feature:nth-child(3) { animation: floaty 6.9s ease-in-out infinite; animation-delay: 1.2s; }
-
-/* hover micro-lift */
-.feature:hover {
-  transform: translateY(-6px) rotate(-0.25deg);
-  box-shadow: 0 10px 28px rgba(0,160,255,0.04);
-}
 
 /* ryzen pill pulse + micro-slide in */
 @keyframes ryzenPulse {
@@ -689,17 +667,7 @@ header.hero {
   50% { transform: translateY(-8px); }
   100% { transform: translateY(0); }
 }
-.mini-plan { animation: bob 7.2s ease-in-out infinite; transition: transform .18s ease, box-shadow .18s ease; }
-.mini-plan:hover { transform: translateY(-10px) scale(1.02); box-shadow: 0 18px 48px rgba(0,180,255,0.06); }
 
-/* float icons — stronger parallax + subtle hover */
-.float-icons img.float { transition: transform .2s ease, filter .25s ease; will-change: transform; }
-.float-icons img.float:hover { filter: drop-shadow(0 12px 28px rgba(0,210,255,0.06)); transform: scale(1.06); }
-
-/* CTA micro-interaction */
-.primary-cta { transition: transform .18s cubic-bezier(.2,.9,.25,1), box-shadow .18s ease, background .12s ease; }
-.primary-cta:active { transform: translateY(-2px) scale(0.995); }
-.primary-cta:focus { outline: none; box-shadow: 0 0 0 6px rgba(0,210,255,0.06); }
 
 /* ============================
    Accessibility & Responsive
@@ -775,7 +743,7 @@ header.hero {
   justify-content: center;
   align-items: flex-start;
   margin-left: 800px;
-  margin-top: -400px;
+  margin-top: -450px;
 }
 
 /* =========================
@@ -1041,35 +1009,8 @@ header.hero {
 /* floating decorative art (Steve/Alex/dog) */
 .mc-art {
   position: absolute;
-  top: -140px;     /* move up - tweak this to taste */
-  right: 660px;    /* move from right edge - tweak to position */
-  width: 320px;    /* size of PNG */
-  height: auto;
-  z-index: 60;     /* high so it sits above panel border */
-  pointer-events: none; /* don’t block clicks */
-  animation: floaty 4s ease-in-out infinite;
-  filter: drop-shadow(0 20px 30px rgba(0,0,0,0.6));
-}
-
-/* kept original bob animation name (not used) but kept for compatibility */
-@keyframes mcBob {
-  0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(-12px); }
-}
-
-/* used floaty on .mc-art */
-@keyframes floaty {
-  0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(-10px); }
-}
-
-/* game selection */
-
-/* floating decorative art (Steve/Alex/dog) */
-.mc-art {
-  position: absolute;
   top: -140px;     /* adjust vertical placement */
-  right: 600px;    /* adjust horizontal placement */
+  right: 400px;    /* adjust horizontal placement */
   width: 320px;    /* size of PNG */
   height: auto;
   z-index: 60;     /* sits above panel border */
@@ -2677,3 +2618,371 @@ footer {
 
 
 
+/* ================================
+   ✅ MOBILE NAVIGATION (LumousCloud)
+   ================================ */
+
+@media (max-width: 760px) {
+  /* Hide normal nav links on small screens */
+  #siteNav .nav-links {
+    display: none !important;
+  }
+
+  /* Hamburger button visible */
+  .hamburger {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 42px;
+    height: 40px;
+    cursor: pointer;
+    z-index: 10002;
+  }
+
+  .hamburger span {
+    width: 26px;
+    height: 2.6px;
+    background: var(--text, #fff);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  /* Backdrop overlay behind mobile nav */
+  .mobile-nav-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(8px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+    z-index: 9998;
+  }
+  .mobile-nav-backdrop.show {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* Mobile slide-in menu panel */
+  .mobile-nav-sheet {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 80%;
+    max-width: 320px;
+    background: linear-gradient(180deg, rgba(6, 10, 20, 0.96), rgba(4, 8, 16, 0.98));
+    border-left: 1px solid rgba(0, 227, 255, 0.1);
+    box-shadow: -12px 0 40px rgba(0, 0, 0, 0.6);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    padding: 22px 18px;
+    overflow-y: auto;
+  }
+  .mobile-nav-sheet.open {
+    transform: translateX(0);
+  }
+
+  /* Inside mobile sheet */
+  .mobile-nav-sheet .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .mobile-nav-sheet .brand img {
+    height: 34px;
+  }
+
+  .mobile-nav-sheet .mobile-links {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 20px;
+  }
+  .mobile-nav-sheet .mobile-links a {
+    display: block;
+    padding: 10px 12px;
+    border-radius: 8px;
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .mobile-nav-sheet .mobile-links a:hover {
+    background: rgba(0, 230, 255, 0.1);
+    color: #00e1ff;
+  }
+
+  .mobile-nav-sheet .nav-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: auto;
+  }
+
+  .mobile-nav-sheet .btn-primary,
+  .mobile-nav-sheet .btn-ghost {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    font-size: 15px;
+  }
+}
+/* -----------------------------
+   HERO — Mobile / small-tablet fixes
+   (paste at the end of your CSS)
+   ----------------------------- */
+@media (max-width: 900px) {
+  /* Make hero stack vertically and center */
+  header.hero {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 18px !important;
+    align-items: center !important;
+    padding: 36px 16px !important;
+    min-height: auto !important;
+    text-align: center;
+  }
+
+  /* Left column becomes full width and neutralizes big desktop offsets */
+  .hero-left {
+    flex: 0 0 auto !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    margin-top: 0 !important;
+    margin-left: 0 !important;
+    padding: 0 6px !important;
+    font-size: 1rem !important;
+  }
+
+  /* Title scaling for mobile */
+  .hero-left h1 {
+    font-size: clamp(80px, 6.2vw, 34px) !important;
+    line-height: 1.08 !important;
+    margin: 6px 0 8px !important;
+    letter-spacing: -0.3px !important;
+  }
+
+  .hero-lead {
+    font-size: 14px !important;
+    max-width: 100% !important;
+    margin: 8px 0 14px !important;
+  }
+
+  /* CTA layout full width and stacked */
+  .ctas-augment { width: 100%; display:block; }
+  .ctas { flex-direction: column !important; gap: 10px !important; align-items: center !important; }
+  .primary-cta, .cta-secondary {
+    width: 100% !important;
+    max-width: 420px !important;
+    justify-content: center !important;
+    text-align: center !important;
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+  }
+  .primary-cta { padding-top: 12px; padding-bottom: 12px; }
+
+  /* Augment area stack and center */
+  .hero-augment { flex-direction: column !important; align-items: center !important; gap: 12px !important; margin-top: 12px !important; }
+  .augment-left, .augment-right { width: 100% !important; max-width: 560px !important; padding: 0 6px !important; box-sizing: border-box; }
+
+  /* Ryzen pill smaller and centered */
+  .ryzen-pill {
+    padding: 8px 12px !important;
+    font-size: 13px !important;
+    transform-origin: center !important;
+    justify-content: center !important;
+  }
+  .chip-icon { width: 16px !important; height: 16px !important; }
+
+  /* Features row: stack vertically (or 2 columns depending on width) */
+  .feature-row {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+    align-items: center !important;
+    width: 100% !important;
+  }
+  .feature {
+    min-width: 0 !important;
+    width: 100% !important;
+    max-width: 420px !important;
+    justify-content: flex-start !important;
+    padding: 8px 12px !important;
+  }
+  .f-title { font-size: 13px !important; }
+  .f-sub { font-size: 12px !important; }
+
+  /* Right column (pricing card) must drop under hero-left, centered */
+  .hero-right {
+    width: 100% !important;
+    max-width: 420px !important;
+    flex: 0 0 auto !important;
+    margin: 0 !important;
+    margin-top: 18px !important;
+    margin-left: 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    position: relative !important;
+  }
+  .pricing-card {
+    width: 100% !important;
+    max-width: 560px !important;
+    box-sizing: border-box;
+    padding: 16px !important;
+    border-radius: 20px !important;
+  }
+  .pricing-card img.plan-illustration {
+    max-width: 100px !important;
+    width: 100% !important;
+    margin: 2px auto !important;
+  }
+  .pricing-card .price { font-size: 20px !important; }
+
+
+  
+  /* make sure hero sits above other elements on narrow screens */
+  header.hero { z-index: 30 !important; }
+
+  /* small tweak for extremely narrow screens */
+  @media (max-width: 420px) {
+    .primary-cta, .cta-secondary { padding-left: 12px !important; padding-right: 12px !important; }
+    .hero-left h1 { font-size: 22px !important; }
+    .hero-lead { font-size: 13px !important; }
+  }
+}
+/* ================================
+   MOBILE OVERRIDES — paste AT THE END of your existing stylesheet
+   (Non-destructive: only affects small screens and uses specific selectors)
+   ================================ */
+
+/* Reduce parallax impact and hide on very small screens for perf */
+.parallax-bg {
+  transition: opacity .24s ease !important;
+}
+@media (max-width: 900px) {
+  .parallax-bg { opacity: 0.06 !important; pointer-events: none !important; }
+}
+@media (max-width: 420px) {
+  .parallax-bg { display: none !important; }
+}
+
+/* Prevent huge logo size introduced earlier — force sensible icon size on mobile */
+.brand img {
+  height: 44px !important;    /* desktop keeps whatever rule exists earlier; override only on mobile below */
+  max-height: 44px !important;
+  margin-left: 0 !important;
+  margin-top: 0 !important;
+}
+
+/* NAV height tweak for narrow devices */
+@media (max-width: 760px) {
+  :root { --nav-h: 72px; } /* reduces top padding for phones */
+  body { padding-top: 72px !important; }
+  nav { height: 72px !important; }
+  .brand img { height: 36px !important; }
+  .brand span { display: none !important; } /* keep brand compact */
+}
+
+/* HERO — keep desktop offsets intact; only override for narrow widths */
+@media (max-width: 900px) {
+  header.hero {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 14px !important;
+    align-items: center !important;
+    padding: 28px 14px !important;
+    min-height: auto !important;
+    text-align: center !important;
+  }
+
+  /* neutralize large desktop margins that pushed hero-left away */
+  .hero-left {
+    margin-left: 0 !important;
+    margin-top: 8px !important;
+    max-width: 100% !important;
+    padding: 0 8px !important;
+  }
+
+  .hero-left h1 {
+    font-size: clamp(22px, 6.6vw, 38px) !important;
+    line-height: 1.08 !important;
+    margin: 6px 0 8px !important;
+    letter-spacing: -0.3px !important;
+  }
+
+  .hero-lead { font-size: 14px !important; max-width: 98% !important; margin-bottom: 10px !important; }
+
+  /* stack CTAs */
+  .ctas, .ctas-augment { flex-direction: column !important; gap: 10px !important; align-items: center !important; width: 100% !important; }
+  .primary-cta, .cta-secondary { width: 100% !important; max-width: 520px !important; justify-content: center !important; padding-left: 14px !important; padding-right: 14px !important; }
+
+  /* important: make hero-right drop under hero-left and center */
+  .hero-right {
+    width: 100% !important;
+    max-width: 540px !important;
+    margin: 0 !important;
+    margin-top: 18px !important;
+    flex: 0 0 auto !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    position: relative !important;
+  }
+
+  /* Avoid huge negative margins or off-canvas positioning */
+  .hero-right, .pgs-art-wrap, .mc-art { right: auto !important; left: auto !important; margin-left: 0 !important; transform: none !important; }
+
+  /* Reduce sizes for plan preview on phones */
+  .pgs-card-preview { width: 100% !important; max-width: 100% !important; height: auto !important; }
+  .pgs-card-preview img { height: 280px !important; object-fit: cover !important; }
+
+  /* Hide decorative art that overlapped other elements */
+  .pgs-art-wrap, .mc-art, .pgs-popout { display: none !important; }
+
+  /* Thumbs: make visible by moving arrows inside the container area */
+  #pgs-thumbPrev { left: 8px !important; }
+  #pgs-thumbNext { right: 8px !important; }
+
+  /* plan icon & spacing tweaks so cards don't overflow */
+  .pgs-plan-icon { min-width: 56px !important; min-height: 56px !important; }
+  .pgs-plan-icon img { width: 48px !important; height: 48px !important; }
+
+  /* Avoid very large hero-left margin-left offsets on mobile */
+  .hero-left { margin-left: 0 !important; }
+}
+
+/* VERY SMALL SCREENS — further safe compression */
+@media (max-width: 420px) {
+  /* shrink headline and spacing */
+  .hero-left h1 { font-size: clamp(18px, 7.5vw, 28px) !important; }
+  .primary-cta, .cta-secondary { padding-top: 10px !important; padding-bottom: 10px !important; }
+  .feature-row { gap: 10px !important; flex-direction: column !important; align-items: stretch !important; }
+  .feature { padding: 8px 10px !important; border-radius: 10px !important; }
+
+  /* reduce nav button/minor paddings to avoid overflow */
+  .nav-actions { gap: 8px !important; margin-left: 6px !important; }
+}
+
+/* Accessibility: keep reduced motion respect but don't break the look */
+@media (prefers-reduced-motion: reduce){
+  .parallax-bg, .pgs-popout, .mc-art { transition: none !important; animation: none !important; }
+}
+
+/* Small fix: if any duplicated .pgs-art-wrap rules show display:block on mobile, force hide */
+@media (max-width: 900px){
+  .pgs-art-wrap[style], .pgs-art-wrap { display: none !important; visibility: hidden !important; opacity: 0 !important; pointer-events: none !important; height: 0 !important; width: 0 !important; }
+}
+
+/* final safety: prevent hero-right from being absolutely positioned off-screen on smaller widths */
+@media (max-width: 1100px){
+  .hero-right { position: relative !important; margin-left: 0 !important; left: auto !important; right: auto !important; }
+}
