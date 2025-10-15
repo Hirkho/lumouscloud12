@@ -1,719 +1,117 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
-  <title>LumousCloud — Minecraft Server Hosting (Pro)</title>
-  <meta name="description" content="LumousCloud — Fast, reliable Minecraft server hosting. Instant setup, modpacks, DDoS protection, 24/7 support." />
-
-  <!-- Fonts -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WiseHosting - Responsive Navbar</title>
   <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;600;700&family=Poppins:wght@300;400;600;700&family=Press+Start+2P&display=swap" rel="stylesheet">
-
-  <!-- Main stylesheet -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<!-- Parallax background (place at very top of <body>) -->
-<div class="parallax-bg" aria-hidden="true"></div>
 
+  <div class="promo-banner">
+    closed <span class="promo-code">699</span>
+  </div>
 
+  <nav>
+    <div class="nav-container">
+      <a href="#" class="logo">
+        <div class="logo-icon"></div>
+        <span class="logo-text"><span class="wise">LUMOX</span>CLOUD</span>
+      </a>
 
-  <!-- NAV -->
-  <nav id="siteNav" role="navigation" aria-label="Main">
-  <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:12px">
-    
-    <!-- Brand -->
-    <div style="display:flex;align-items:center;gap:12px">
-      <div class="brand">
-        <img src="assets/Lumous_lab.png" alt="LumousCloud">
-        <span></span>
+      <div class="desktop-menu">
+        <a href="#">Home</a>
+        <a href="#">Partnerships</a>
+
+        <div class="dropdown">
+          <button class="dropdown-toggle">
+            <span>Servers</span>
+            <span class="arrow">&#9660;</span>
+          </button>
+          <div class="dropdown-content">
+            <a href="#"><img src="assets/dedicated server.png" class="Dedicatedicon">Dedicated servers</a>
+            <a href="#"><img src="assets/vps server.png" class="vpsicon">VPS SERVERS</a>
+            <a href="#"><img src="assets/web server.png" class="webicon">WEB SERVERS</a>
+            <a href="#"><img src="assets/game server.png" class="gameicon">GAME SERVERS</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <button class="dropdown-toggle">
+            <span>More</span>
+            <span class="arrow">&#9660;</span>
+          </button>
+          <div class="dropdown-content">
+            <a href="#">About</a>
+            <a href="#">Blog</a>
+            <a href="#">Affiliates</a>
+          </div>
+        </div>
       </div>
+
+<div class="desktop-actions">
+  <button class="login-btn">Login</button>
+  <button class="order-btn">
+     <svg class="icon-left" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+      <path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm0 2c-4.418 0-8 2.239-8 5v1h16v-1c0-2.761-3.582-5-8-5z" fill="currentColor"/>
+    </svg>
+    Account
+  </button>
+</div>
+
+      <button class="hamburger" id="hamburger">
+        <span id="hamburger-icon">&#9776;</span>
+        <span id="close-icon" style="display: none;">&#10005;</span>
+      </button>
     </div>
 
-    <!-- Nav Links -->
-    <ul class="nav-links" role="menubar" aria-label="Primary navigation">
-      <li class="nav-item"><a href="#hero" class="active" role="menuitem">Home</a></li>
-      <li class="nav-item"><a href="#plans" role="menuitem">Pricing</a></li>                                      
-      <li class="nav-item"><a href="partnership.html" role="menuitem">Partners</a></li>
-      <li class="nav-item"><a href="#faq" role="menuitem">FAQ</a></li>
+    <!-- ✅ MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#">Home</a>
+      <a href="#">Partnerships</a>
 
-      <!-- More with dropdown -->
-      <li class="nav-item">
-        <a href="#more" role="menuitem" aria-haspopup="true" aria-expanded="false">More ▾</a>
-        <ul class="dropdown" role="menu">
-          <li><a href="#about" role="menuitem">About Us</a></li>
-          <li><a href="#careers" role="menuitem">Careers</a></li>
-          <li><a href="#blog" role="menuitem">Blog</a></li>                
-          <li><a href="#contact" role="menuitem">Contact</a></li>
-        </ul>
-      </li>
-    </ul>
+      <button class="mobile-dropdown-toggle" id="supportToggle">
+        <span>Servers</span>
+        <span class="arrow">&#9660;</span>
+      </button>
+      <div class="mobile-dropdown-content" id="supportDropdown">
+        <a href="#"><img src="assets/dedicated server.png" class="Dedicatedicon">DEDICATED SERVERS</a>
+        <a href="#"><img src="assets/vps server.png" class="vpsicon">VPS SERVERS</a>
+        <a href="#"><img src="assets/web server.png" class="webicon">WEB SERVERS</a>
+        <a href="#"><img src="assets/game server.png" class="gameicon">GAME SERVERS</a>
+      </div>
 
- <div class="nav-actions" aria-hidden="false">
-  <a class="btn-ghost" href="account.html">Login</a>
+      <button class="mobile-dropdown-toggle" id="moreToggle">
+        <span>More</span>
+        <span class="arrow">&#9660;</span>
+      </button>
+      <div class="mobile-dropdown-content" id="moreDropdown">
+        <a href="#">About</a>
+        <a href="#">Blog</a>
+        <a href="#">Affiliates</a>
+      </div>
 
-  <!-- Account button with SVG icon (choose one of the <svg> blocks below) -->
-  <a class="btn-primary" href="#order">
-    <!-- ==== OPTION A: User / Profile icon ==== -->
+       
+
+<div class="mobile-actions">    
+  <button class="login-btn">
     <svg class="icon-left" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
       <path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm0 2c-4.418 0-8 2.239-8 5v1h16v-1c0-2.761-3.582-5-8-5z" fill="currentColor"/>
     </svg>
     Account
-  </a>
-      <div class="hamburger" id="hamburger" aria-hidden="true" aria-label="Open menu" role="button" tabindex="0">
-        <span></span><span></span><span></span>
-      </div>
-    </div>
+  </button>
 
-  </div>
-</nav>
-  <!-- HERO / LANDING -->
-  <header id="hero" class="hero container">
-    <div class="hero-left">
-    
-      <h1>Minecraft Server<br><span class="accent">Hosting Made Easy!</span></h1>
-     
-
-     <!-- CTA + HERO AUGMENT (replace your old .ctas block with this) -->
-<div class="ctas-augment">
-  <!-- CTAs (kept + improved) -->
-  <div class="ctas">
-    <a href="#" class="primary-cta">
-      <span class="cta-label">ORDER NOW</span>
-      <small class="cta-sub">Instant setup · 24/7 support</small>
-    </a>
-  </div>
-
-<div class="feature-row">
-  <div class="feature">
-    <div class="f-dot"></div>
-    <div>
-      <div class="f-title">
-        <img src="assets/performance.png" alt="CPU icon" class="f-icon">
-        Ryzen 9 CPU
-      </div>
-      <div class="f-sub">High single-thread perf</div>
-    </div>
-  </div>
-
-  <div class="feature">
-    <div class="f-dot"></div>
-    <div>
-      <div class="f-title">
-        <img src="assets/ddos.png" alt="Shield icon" class="f-icon">
-        DDoS Protection
-      </div>
-      <div class="f-sub">Enterprise-grade</div>
-    </div>
-  </div>
-
-  <div class="feature">
-    <div class="f-dot"></div>
-    <div>
-      <div class="f-title">
-        <img src="assets/rocket.png" alt="Rocket icon" class="f-icon">
-        Instant Setup
-      </div>
-      <div class="f-sub">Spin up in seconds</div>
-    </div>
-  </div>
+  <button class="login-btn">
+    <svg class="icon-left" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+      <path d="M10 17l5-5-5-5v3H3v4h7v3zm9-12H9a2 2 0 0 0-2 2v2h2V7h10v10H9v-2H7v2a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2z" fill="currentColor"/>
+    </svg>
+    Login
+  </button>
 </div>
 
+  </nav>
 
-    <aside class="hero-right">
-      <div class="pricing-card" aria-label="Featured plan">
-        <div class="badge">MOST POPULAR</div>
-        <img class="plan-illustration" src="assets/Slime_plan.png" alt="Plan illustration">
-        <h3>Slime Plan</h3>
-        <div class="price">₹149/mo</div>
-        <div class="meta muted">Perfect for vanilla & small modded servers</div>
-        <div class="card-actions">
-          <a class="order-small" href="#order">Order Now</a>
-          <a class="explore-small" href="#plans">See Plans</a>
-        </div>
-      </div>
-    </aside>
-  </header>
-
-<!-- SHOWCASE SECTION -->
-<section id="showcase" class="showcase-section container">
-  <div class="showcase-content">
-    <h2 class="showcase-title">
-      Server Hosting Made <span class="accent">Simple</span>
-    </h2>
-    <p class="showcase-text">
-      Our customized game server control panel makes changing settings,
-      installing plugins, and managing backups a breeze. Reliable
-      infrastructure ensures your world stays online 24/7.
-    </p>
-    <div class="showcase-actions">
-      <a href="#plans" class="showcase-btn-primary">Order Now</a>
-      <a href="#features" class="showcase-btn-ghost">Why Choose Us</a>
-    </div>
-  </div>
-
-  <!-- Animated graphic (canvas replaces static PNG) -->
-  <div class="showcase-graphic">
-    <canvas id="cubeCanvas" width="400" height="400"></canvas>
-  </div>
-</section>
-<!-- Pro Game Selector: paste this ONLY where you want the section -->
-<section class="gc-section" aria-labelledby="gc-games">
-
-  <!-- Floating Minecraft art (kept) -->
-  <img src="assets/lantern.png" 
-       alt="Minecraft Characters" class="mc-art">
-
-  <section class="pgs-panel" aria-labelledby="pgs-panel-title" tabindex="0">
-    <div class="pgs-grid">
-
-      <!-- LEFT: Plans -->
-      <div class="pgs-plans" id="pgs-plansColumn" aria-live="polite" aria-label="Available plans">
-        <h3 id="pgs-plansHeading">Plans</h3>
-        <div class="pgs-sub">Choose a plan after selecting a game</div>
-        <!-- JS will inject plan cards here -->
-      </div>
-
-      <!-- CENTER: Preview + thumbs -->
-      <div class="pgs-center" role="main">
-        <div class="pgs-kicker" id="pgs-centerKicker">Popular</div>
-        <h2 id="pgs-panel-title" class="pgs-title">Minecraft Server Hosting</h2>
-        <p id="pgs-panel-desc" class="pgs-desc">
-          Launch your server on high-performance NVMe hardware with 24/7 support, automatic backups, and DDoS protection.
-          Choose a game to view plans and pricing.
-        </p>
-
-        <div class="pgs-select-row">
-          <div class="pgs-card-preview" aria-hidden="true">
-            <img id="pgs-mainImage" src="assets/minecraft-card.jpg" alt="Minecraft preview">
-          </div>
-
-          <div class="pgs-preview-meta">
-            <h4 id="pgs-mainTitle">Minecraft — Featured</h4>
-            <p id="pgs-mainText">
-              High-performance dedicated servers with automated backups and a mod manager. Perfect for larger groups and modded gameplay.
-            </p>
-
-            <div class="pgs-actions">
-              <button class="pgs-btn-primary" id="pgs-primaryCta" type="button">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-                     viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                     style="vertical-align:middle; margin-right:8px">
-                  <path d="M21 10c0 6-9 12-9 12S3 16 3 10a9 9 0 1 1 18 0z"/>
-                  <circle cx="12" cy="10" r="3"/>
-                </svg>
-                Order Now
-              </button>
-
-              <button class="pgs-btn-secondary" id="pgs-docsCta" type="button">
-                <svg width="16" height="16" viewBox="0 0 24 24" 
-                     style="vertical-align:middle;margin-right:8px" aria-hidden="true">
-                  <path fill="currentColor" d="M6 2h7l5 5v13a2 2 0 0 1-2 2H6zM13 3.5V9h5"/>
-                </svg>
-                Help & Docs
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div class="pgs-thumbs-wrap" aria-hidden="false">
-          <button class="pgs-arrow" id="pgs-thumbPrev" title="Scroll left" type="button">◀</button>
-          <div class="pgs-thumbs" id="pgs-thumbContainer" role="list"></div>
-          <button class="pgs-arrow" id="pgs-thumbNext" title="Scroll right" type="button">▶</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- 🔥 NEW: Popout character/dino art -->
-    <div class="pgs-art-wrap">
-      <img src="assets/ark-dino.png" alt="Featured Game Character" class="pgs-popout">
-    </div>
-    <!-- End popout -->
-
-  </section>
-</section>
-
-
-
-<!-- WHY CHOOSE US (banner-style images) -->
-<section id="why" class="why-section container" aria-labelledby="why-title">
-  <h2 id="why-title" class="why-title">WHY CHOOSE US?</h2>
-
-  <div class="why-grid">
-
-    <!-- Row 1: image left, text right -->
-    <div class="why-row">
-      <figure class="why-media">
-        <!-- use a banner image (1920x600 recommended). Use srcset for retina if available. -->
-        <img src="assets/biscet1.png"
-             srcset="assets/support-banner-1920x600@2x.png 2x"
-             alt="Support illustration - Lumous Cloud" />
-      </figure>
-
-      <div class="why-copy">
-        <h3 class="why-heading">OUR SUPPORT TEAM IS AVAILABLE 24/7/365</h3>
-        <p class="why-desc">
-          When you run into a mod, modpack, plugin, or setting on your server, our support team is here to help within minutes.
-          From Minecraft to Garry's mod server hosting, we help with setup and troubleshooting so you spend more time playing.
-        </p>
-      </div>
-    </div>
-
-    <!-- Row 2: text left, image right (alternate) -->
-    <div class="why-row reverse">
-      <figure class="why-media">
-        <img src="assets/biscet2.png"
-             srcset="assets/controlpanel-banner-1920x600@2x.png 2x"
-             alt="Control panel illustration - Lumous Cloud" />
-      </figure>
-
-      <div class="why-copy">
-        <h3 class="why-heading">POWERFUL CONTROL PANEL FOR EASY SERVER MANAGEMENT</h3>
-        <p class="why-desc">
-          Our easy-to-use control panel lets you take charge of all aspects of your hosted Minecraft servers — stopping/starting,
-          adding modpacks, editing configs, or changing player slots. Interface designed for players & admins.
-        </p>
-      </div>
-    </div>
-
-    <!-- Row 3: image left, text right -->
-    <div class="why-row">
-      <figure class="why-media">
-        <img src="assets/biscet3.png"
-             srcset="assets/modded-banner-1920x600@2x.png 2x"
-             alt="Modded servers illustration - Lumous Cloud" />
-      </figure>
-
-      <div class="why-copy">
-        <h3 class="why-heading">MODDED MINECRAFT SERVERS ARE OUR SPECIALTY</h3>
-        <p class="why-desc">
-          Automated modpack installer, instance manager, and MariaDB/MySQL support let you swap modpacks and scale reliably.
-          We handle the heavy lifting so your server runs smooth under mods.
-        </p>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-
-
-
-
-
-
-
-<!-- FEATURES SECTION -->
-<section id="features" class="features-section container">
-  <h2 class="features-title">OUR FEATURES</h2>
-
-  <div class="features-grid" aria-live="polite">
-    <!-- Feature card (repeat) -->
-    <article class="feature-item">
-      <div class="feature-icon">
-        <!-- chat icon (inline SVG) -->
-        <svg viewBox="0 0 24 24" width="44" height="44" aria-hidden="true">
-          <g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-          </g>
-        </svg>
-      </div>
-      <h3 class="feature-heading">24/7 Support</h3>
-      <p class="feature-desc">Fast, helpful support—average reply time under 15 minutes. We’ll help get your project up and running.</p>
-    </article>
-
-    <article class="feature-item">
-      <div class="feature-icon">
-        <!-- globe icon -->
-        <svg viewBox="0 0 24 24" width="44" height="44" aria-hidden="true">
-          <g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 12A9 9 0 1 1 3 12a9 9 0 0 1 18 0z"/>
-            <path d="M2.05 12H21.95"/>
-            <path d="M12 2.05a15.3 15.3 0 0 1 0 19.9"/>
-          </g>
-        </svg>
-      </div>
-      <h3 class="feature-heading">Low-Latency Locations</h3>
-      <p class="feature-desc">Multiple server locations worldwide so players get the lowest ping possible.</p>
-    </article>
-
-    <article class="feature-item">
-      <div class="feature-icon">
-        <!-- download icon -->
-        <svg viewBox="0 0 24 24" width="44" height="44" aria-hidden="true">
-          <g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-            <path d="M7 10l5 5 5-5"/>
-            <path d="M12 15V3"/>
-          </g>
-        </svg>
-      </div>
-      <h3 class="feature-heading">Easy Modpack Install</h3>
-      <p class="feature-desc">Automatic modpack installation — hundreds of packs available with one click.</p>
-    </article>
-
-    <article class="feature-item">
-      <div class="feature-icon">
-        <!-- shield icon -->
-        <svg viewBox="0 0 24 24" width="44" height="44" aria-hidden="true">
-          <g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 3l8 4v5a8 8 0 0 1-8 8 8 8 0 0 1-8-8V7l8-4z"/>
-          </g>
-        </svg>
-      </div>
-      <h3 class="feature-heading">DDoS Protection</h3>
-      <p class="feature-desc">Enterprise-grade DDoS protection prevents downtime and keeps your server online.</p>
-    </article>
-
-    <article class="feature-item">
-      <div class="feature-icon">
-        <!-- ip icon -->
-        <svg viewBox="0 0 24 24" width="44" height="44" aria-hidden="true">
-          <g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="3"/>
-            <path d="M4 12h.01M20 12h.01M12 4v.01M12 20v.01M6.2 6.2l.01.01M17.8 17.8l.01.01M6.2 17.8l.01.01M17.8 6.2l.01.01"/>
-          </g>
-        </svg>
-      </div>
-      <h3 class="feature-heading">Dedicated IP</h3>
-      <p class="feature-desc">Free dedicated server IP so you don’t need extra ports after setup.</p>
-    </article>
-
-    <article class="feature-item">
-      <div class="feature-icon">
-        <!-- swapping icon -->
-        <svg viewBox="0 0 24 24" width="44" height="44" aria-hidden="true">
-          <g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 16V8"/>
-            <path d="M3 8v8"/>
-            <path d="M21 8h-6l2 2"/>
-            <path d="M3 16h6l-2-2"/>
-          </g>
-        </svg>
-      </div>
-      <h3 class="feature-heading">Game Swapping</h3>
-      <p class="feature-desc">Switch to any supported game at no extra charge — instant swaps, zero hassle.</p>
-    </article>
-  </div>
-
-  <button id="featuresToggle" class="features-toggle" aria-expanded="false">
-    See more features <span class="chev">▾</span>
-  </button>
-</section>
-
-
-<!-- START: Premium Comparison Table (paste where you want it) -->
-<section id="pro-compare" class="pro-compare" aria-labelledby="pro-compare-title">
-  <div class="pro-compare-inner">
-    <header class="pro-compare-head">
-      <div>
-        <h2 id="pro-compare-title">How We Stack Up — Premium Comparison</h2>
-        <p class="pro-muted">Detailed, feature-backed comparison so you can choose with confidence.</p>
-      </div>
-
-      <div class="pro-compare-logos" aria-hidden="true">
-        <div class="logo-empty"></div>
-        <div class="logo main">LUMOUSLAB</div>
-        <div class="logo">Shockbyte</div>
-        <div class="logo">BisectHosting</div>
-        <div class="logo">ApexHosting</div>
-        <div class="logo">GGServers</div>
-      </div>
-    </header>
-
-    <div class="pro-table-wrap" role="table" aria-label="Feature comparison">
-      <div class="pro-table" role="rowgroup">
-
-        <!-- COLUMN: feature descriptions -->
-        <div class="col col-features" role="row">
-          <div class="col-head">Feature</div>
-
-          <div class="feature" role="row">
-            <div class="feature-title">
-              <!-- SVG icon (instances) -->
-              <svg class="f-ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3" /></svg>
-              <div>
-                <div class="ft-name">Unlimited Instances</div>
-                <div class="ft-desc">Create many server instances, limited only by disk.</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="feature" role="row">
-            <div class="feature-title">
-              <svg class="f-ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="7" r="4" /><path d="M4.5 20a7.5 7.5 0 0 1 15 0" /></svg>
-              <div>
-                <div class="ft-name">Live Player Manager</div>
-                <div class="ft-desc">Edit inventories, teleport players, real-time ops.</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="feature" role="row">
-            <div class="feature-title">
-              <svg class="f-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h12" /></svg>
-              <div>
-                <div class="ft-name">Automatic Presets</div>
-                <div class="ft-desc">One-click pack/install presets for mods & plugins.</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="feature" role="row">
-            <div class="feature-title">
-              <svg class="f-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v6M6 10v10h12V10" /></svg>
-              <div>
-                <div class="ft-name">24/7 Support</div>
-                <div class="ft-desc">Live support, server joins & troubleshooting included.</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="feature" role="row">
-            <div class="feature-title">
-              <svg class="f-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3 6 6 1-4.5 4 1 6L12 17 6.5 19l1-6L3 9l6-1z"/></svg>
-              <div>
-                <div class="ft-name">DDoS Protection</div>
-                <div class="ft-desc">Enterprise-grade mitigation on all plans.</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="feature" role="row">
-            <div class="feature-title">
-              <svg class="f-ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="10" rx="2" /><path d="M7 12h10" /></svg>
-              <div>
-                <div class="ft-name">Dedicated IP</div>
-                <div class="ft-desc">Free dedicated IP available on request.</div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-        <!-- /features column -->
-
-        <!-- PROVIDER COLUMNS: copy/duplicate cells as needed -->
-        <!-- LUMOUSLAB (highlighted) -->
-        <div class="col col-provider col-main" role="row" aria-label="LumousLab">
-          <div class="col-head">LUMOUSLAB</div>
-
-          <div class="cell yes" role="cell" data-tooltip="Yes — unlimited instances">
-            <svg class="icon-check" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.3 6.7 9 18 3.7 12.7 5.1 11.3 9 15.2 18.9 5.3z"/></svg>
-          </div>
-
-          <div class="cell yes" role="cell" data-tooltip="Real-time player manager included">
-            <svg class="icon-check" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.3 6.7 9 18 3.7 12.7 5.1 11.3 9 15.2 18.9 5.3z"/></svg>
-          </div>
-
-          <div class="cell yes" role="cell" data-tooltip="Automatic presets & modpacks">
-            <svg class="icon-check" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.3 6.7 9 18 3.7 12.7 5.1 11.3 9 15.2 18.9 5.3z"/></svg>
-          </div>
-
-          <div class="cell yes" role="cell" data-tooltip="24/7 support with server joins">
-            <svg class="icon-check" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.3 6.7 9 18 3.7 12.7 5.1 11.3 9 15.2 18.9 5.3z"/></svg>
-          </div>
-
-          <div class="cell yes" role="cell" data-tooltip="Free enterprise DDoS">
-            <svg class="icon-check" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.3 6.7 9 18 3.7 12.7 5.1 11.3 9 15.2 18.9 5.3z"/></svg>
-          </div>
-
-          <div class="cell yes" role="cell" data-tooltip="Dedicated IP available">
-            <svg class="icon-check" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.3 6.7 9 18 3.7 12.7 5.1 11.3 9 15.2 18.9 5.3z"/></svg>
-          </div>
-        </div>
-
-        <!-- Shockbyte -->
-        <div class="col col-provider" role="row" aria-label="Shockbyte">
-          <div class="col-head">Shockbyte</div>
-
-          <div class="cell no" role="cell" data-tooltip="Limited to X instances">
-            <svg class="icon-x" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.3 5.7 12 12 5.7 5.7 4.3 7.1 10.6 13.4 4.3 19.7 5.7 21.1 12 14.8 18.3 21.1 19.7 19.7 13.4 13.4 19.7 7.1z"/></svg>
-          </div>
-
-          <div class="cell no" role="cell" data-tooltip="No live player manager">
-            <svg class="icon-x" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.3 5.7 12 12 5.7 5.7 4.3 7.1 10.6 13.4 4.3 19.7 5.7 21.1 12 14.8 18.3 21.1 19.7 19.7 13.4 13.4 19.7 7.1z"/></svg>
-          </div>
-
-          <div class="cell no" role="cell" data-tooltip="Presets are limited or manual">
-            <svg class="icon-x" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.3 5.7 12 12 5.7 5.7 4.3 7.1 10.6 13.4 4.3 19.7 5.7 21.1 12 14.8 18.3 21.1 19.7 19.7 13.4 13.4 19.7 7.1z"/></svg>
-          </div>
-
-          <div class="cell no" role="cell" data-tooltip="Limited support hours">
-            <svg class="icon-x" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.3 5.7 12 12 5.7 5.7 4.3 7.1 10.6 13.4 4.3 19.7 5.7 21.1 12 14.8 18.3 21.1 19.7 19.7 13.4 13.4 19.7 7.1z"/></svg>
-          </div>
-
-          <div class="cell no" role="cell" data-tooltip="Paid add-on DDoS">
-            <svg class="icon-x" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.3 5.7 12 12 5.7 5.7 4.3 7.1 10.6 13.4 4.3 19.7 5.7 21.1 12 14.8 18.3 21.1 19.7 19.7 13.4 13.4 19.7 7.1z"/></svg>
-          </div>
-
-          <div class="cell no" role="cell" data-tooltip="IP requires upgrade">
-            <svg class="icon-x" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.3 5.7 12 12 5.7 5.7 4.3 7.1 10.6 13.4 4.3 19.7 5.7 21.1 12 14.8 18.3 21.1 19.7 19.7 13.4 13.4 19.7 7.1z"/></svg>
-          </div>
-        </div>
-
-        <!-- BisectHosting -->
-        <div class="col col-provider" role="row" aria-label="BisectHosting">
-          <div class="col-head">BisectHosting</div>
-
-          <div class="cell no" role="cell"><svg class="icon-x" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.3 5.7 12 12 5.7 5.7 4.3 7.1 10.6 13.4 4.3 19.7 5.7 21.1 12 14.8 18.3 21.1 19.7 19.7 13.4 13.4 19.7 7.1z"/></svg></div>
-          <div class="cell yes" role="cell"><svg class="icon-check" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.3 6.7 9 18 3.7 12.7 5.1 11.3 9 15.2 18.9 5.3z"/></svg></div>
-          <div class="cell no" role="cell"><svg class="icon-x" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.3 5.7 12 12 5.7 5.7 4.3 7.1 10.6 13.4 4.3 19.7 5.7 21.1 12 14.8 18.3 21.1 19.7 19.7 13.4 13.4 19.7 7.1z"/></svg></div>
-          <div class="cell no" role="cell"><svg class="icon-x" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.3 5.7 12 12 5.7 5.7 4.3 7.1 10.6 13.4 4.3 19.7 5.7 21.1 12 14.8 18.3 21.1 19.7 19.7 13.4 13.4 19.7 7.1z"/></svg></div>
-          <div class="cell no" role="cell"><svg class="icon-x" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.3 5.7 12 12 5.7 5.7 4.3 7.1 10.6 13.4 4.3 19.7 5.7 21.1 12 14.8 18.3 21.1 19.7 19.7 13.4 13.4 19.7 7.1z"/></svg></div>
-        </div>
-
-        <!-- ApexHosting -->
-        <div class="col col-provider" role="row" aria-label="ApexHosting">
-          <div class="col-head">ApexHosting</div>
-          <div class="cell no" role="cell"><svg class="icon-x" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.3 5.7 12 12 5.7 5.7 4.3 7.1 10.6 13.4 4.3 19.7 5.7 21.1 12 14.8 18.3 21.1 19.7 19.7 13.4 13.4 19.7 7.1z"/></svg></div>
-          <div class="cell no" role="cell"><svg class="icon-x" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.3 5.7 12 12 5.7 5.7 4.3 7.1 10.6 13.4 4.3 19.7 5.7 21.1 12 14.8 18.3 21.1 19.7 19.7 13.4 13.4 19.7 7.1z"/></svg></div>
-          <div class="cell no" role="cell"><svg class="icon-x" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.3 5.7 12 12 5.7 5.7 4.3 7.1 10.6 13.4 4.3 19.7 5.7 21.1 12 14.8 18.3 21.1 19.7 19.7 13.4 13.4 19.7 7.1z"/></svg></div>
-          <div class="cell no" role="cell"><svg class="icon-x" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.3 5.7 12 12 5.7 5.7 4.3 7.1 10.6 13.4 4.3 19.7 5.7 21.1 12 14.8 18.3 21.1 19.7 19.7 13.4 13.4 19.7 7.1z"/></svg></div>
-          <div class="cell no" role="cell"><svg class="icon-x" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.3 5.7 12 12 5.7 5.7 4.3 7.1 10.6 13.4 4.3 19.7 5.7 21.1 12 14.8 18.3 21.1 19.7 19.7 13.4 13.4 19.7 7.1z"/></svg></div>
-        </div>
-
-        <!-- GGServers -->
-        <div class="col col-provider" role="row" aria-label="GGServers">
-          <div class="col-head">GGServers</div>
-          <div class="cell no" role="cell"><svg class="icon-x" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.3 5.7 12 12 5.7 5.7 4.3 7.1 10.6 13.4 4.3 19.7 5.7 21.1 12 14.8 18.3 21.1 19.7 19.7 13.4 13.4 19.7 7.1z"/></svg></div>
-          <div class="cell no" role="cell"><svg class="icon-x" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.3 5.7 12 12 5.7 5.7 4.3 7.1 10.6 13.4 4.3 19.7 5.7 21.1 12 14.8 18.3 21.1 19.7 19.7 13.4 13.4 19.7 7.1z"/></svg></div>
-          <div class="cell no" role="cell"><svg class="icon-x" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.3 5.7 12 12 5.7 5.7 4.3 7.1 10.6 13.4 4.3 19.7 5.7 21.1 12 14.8 18.3 21.1 19.7 19.7 13.4 13.4 19.7 7.1z"/></svg></div>
-          <div class="cell no" role="cell"><svg class="icon-x" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.3 5.7 12 12 5.7 5.7 4.3 7.1 10.6 13.4 4.3 19.7 5.7 21.1 12 14.8 18.3 21.1 19.7 19.7 13.4 13.4 19.7 7.1z"/></svg></div>
-          <div class="cell no" role="cell"><svg class="icon-x" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.3 5.7 12 12 5.7 5.7 4.3 7.1 10.6 13.4 4.3 19.7 5.7 21.1 12 14.8 18.3 21.1 19.7 19.7 13.4 13.4 19.7 7.1z"/></svg></div>
-        </div>
-
-      </div>
-    </div>
-
-    <div class="pro-compare-cta">
-      <a href="#order" class="btn-pro">Get the Pro Plan — Stand Out</a>
-      <a href="#features" class="btn-ghost">See full feature list</a>
-    </div>
-  </div>
-</section>
-<!-- END: Premium Comparison Table -->
-
- <!-- Ping radar -->
-  <div class="wrap">
-    <h1>Ping Radar</h1>
-    <p class="lead">Servers emit ripples on a radar when their ping updates — good pings are green rings, bad pings are red. Sparkline and numeric ping shown per server.</p>
-
-    <div class="controls">
-      <button class="btn" id="start">Start</button>
-      <button class="btn ghost" id="stop">Stop</button>
-    </div>
-
-    <div class="layout">
-      <div class="radar-card">
-        <div class="radar-wrap">
-          <canvas id="radar" class="radar-canvas"></canvas>
-        </div>
-        <div class="legend">
-          <span><span class="dot" style="background:var(--good)"></span>Good</span>
-          <span><span class="dot" style="background:var(--warn)"></span>Okay</span>
-          <span><span class="dot" style="background:var(--bad)"></span>Bad</span>
-        </div>
-      </div>
-
-      <div>
-        <div class="list" id="list"></div>
-      </div>
-    </div>
-
-    <footer class="note">Demo — to use real measurements replace the <code>simulatePing()</code> function with real probes or call <code>updatePingFor(id, ping)</code>.</footer>
-  </div>
-
-  <script src="script.js"></script>
-</body>
-</html>
-
-
-
-  <!-- FAQ -->
-  <section id="faq" class="faq">
-    <div class="container faq-list">
-      <h2 style="font-family:'Oxanium';margin-bottom:12px">Frequently asked questions</h2>
-
-      <div class="faq-item">
-        <div class="faq-q"><strong>How do I install mods?</strong><span class="muted">+</span></div>
-        <div class="faq-a">We provide 1-click installers for Forge, Fabric and curated modpacks. Use the control panel to select and install a pack instantly.</div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q"><strong>What are your payment methods?</strong><span class="muted">+</span></div>
-        <div class="faq-a">We accept major cards, PayPal, UPI (India), and other local methods. See footer for badges.</div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q"><strong>Can I upgrade mid-month?</strong><span class="muted">+</span></div>
-        <div class="faq-a">Yes — upgrades are instant and billed pro-rata. Downgrades take effect on renewal.</div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q"><strong>Do you offer refunds?</strong><span class="muted">+</span></div>
-        <div class="faq-a">We offer a 48-hour satisfaction window for refunds on new orders; see our Terms for details.</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PARTNERSHIPS -->
-  <section id="partners" class="partners">
-    <div class="container">
-      <h2 style="font-family:'Oxanium';margin-bottom:12px">Partnerships & Resellers</h2>
-      <p class="muted" style="margin-bottom:16px">Partner with us — white-label options, bulk discounts and referral programs available.</p>
-
-      <div class="partners-grid">
-        <div class="partner"><img src="assets/partner1.png" alt="Partner 1"></div>
-        <div class="partner"><img src="assets/partner2.png" alt="Partner 2"></div>
-        <div class="partner"><img src="assets/partner3.png" alt="Partner 3"></div>
-        <div class="partner"><img src="assets/partner4.png" alt="Partner 4"></div>
-      </div>
-
-      <div style="margin-top:18px">
-        <a class="btn-primary" href="#contact">Apply to partner</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- TESTIMONIALS -->
-  <section class="testimonials">
-    <div class="container">
-      <h2 style="font-family:'Oxanium';text-align:center;margin-bottom:16px">What players say</h2>
-      <div class="test-row">
-        <div class="test-card"><p>"Latency is great — servers stayed online during our event."</p><div class="who muted">— Raj, SMP owner</div></div>
-        <div class="test-card"><p>"Support fixed my plugin issue within 30 minutes."</p><div class="who muted">— Nik, Modpack host</div></div>
-        <div class="test-card"><p>"Excellent performance for modded packs."</p><div class="who muted">— Asha, streamer</div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="container">
-      <div class="footer-links">
-        <a href="#hero">Home</a> • <a href="#plans">Pricing</a> • <a href="#why">Why Us</a> • <a href="#compare">Comparison</a> • <a href="#faq">FAQ</a> • <a href="#partners">Partners</a>
-      </div>
-
-      <div style="margin:14px 0" class="payment-icons">
-        <img src="assets/pay-visa.png" alt="Visa">
-        <img src="assets/pay-mastercard.png" alt="Mastercard">
-        <img src="assets/pay-paypal.png" alt="PayPal">
-        <img src="assets/pay-upi.png" alt="UPI">
-      </div>
-
-      <div style="color:var(--muted);font-size:13px;margin-bottom:8px">© 2025 LumousCloud — Minecraft Server Hosting • <a href="#tos" class="muted">Terms</a> • <a href="#privacy" class="muted">Privacy</a></div>
-
-      <div style="display:flex;gap:10px;justify-content:center">
-        <a href="#" class="muted">Discord</a>
-        <a href="#" class="muted">Twitter</a>
-        <a href="#" class="muted">YouTube</a>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Link to script.js (JS from full file) -->
   <script src="script.js" defer></script>
 </body>
 </html>
