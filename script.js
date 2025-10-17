@@ -105,3 +105,39 @@ if (moreToggle && moreDropdown) {
 [supportToggle, moreToggle].forEach(btn => {
   if (btn && !btn.hasAttribute('aria-expanded')) btn.setAttribute('aria-expanded', 'false');
 });
+
+/* -----------------------------
+     PARALLAX BACKGROUND
+     ----------------------------- */
+  (function parallaxBg() {
+    const bg = document.querySelector('.parallax-bg');
+    if (!bg) return;
+
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      bg.style.willChange = 'auto';
+      return;
+    }
+
+    const isMobile = ('ontouchstart' in window) || navigator.maxTouchPoints > 1 || /Mobi|Android/i.test(navigator.userAgent);
+    const speed = 0.22;
+    let lastY = window.scrollY;
+    let ticking = false;
+
+    window.addEventListener('scroll', () => {
+      lastY = window.scrollY;
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const y = Math.round(-lastY * speed);
+          bg.style.transform = `translate3d(0, ${y}px, 0)`;
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+
+    if (isMobile) {
+      // tweak effect for mobile if needed (kept for future opts)
+    }
+  })();
+
+

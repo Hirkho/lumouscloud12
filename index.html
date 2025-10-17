@@ -3,16 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WiseHosting - Responsive Navbar</title>
+  <title>LumoxCloud</title>
   <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;600;700&family=Poppins:wght@300;400;600;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&family=Nunito+Sans:wght@600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
+   
   <div class="promo-banner">
-    closed <span class="promo-code">699</span>
+    FOR EXTRA 7%OFF USE <span class="promo-code">NEW10</span>
   </div>
-
+  <div class="parallax-bg" aria-hidden="true"></div>
+  <!--Navigation links-->
   <nav>
     <div class="nav-container">
       <a href="#" class="logo">
@@ -22,7 +26,7 @@
 
       <div class="desktop-menu">
         <a href="#">Home</a>
-        <a href="#">Partnerships</a>
+        <a href="#">Terms</a>
 
         <div class="dropdown">
           <button class="dropdown-toggle">
@@ -30,10 +34,10 @@
             <span class="arrow">&#9660;</span>
           </button>
           <div class="dropdown-content">
-            <a href="#"><img src="assets/dedicated server.png" class="Dedicatedicon">Dedicated servers</a>
-            <a href="#"><img src="assets/vps server.png" class="vpsicon">VPS SERVERS</a>
-            <a href="#"><img src="assets/web server.png" class="webicon">WEB SERVERS</a>
-            <a href="#"><img src="assets/game server.png" class="gameicon">GAME SERVERS</a>
+            <a href="#"><img src="assets/dedicated server.png" class="Dedicatedicon">Minecraft</a>
+            <a href="#"><img src="assets/vps server.png" class="vpsicon">Project Zomboid</a>
+            <a href="#"><img src="assets/web server.png" class="webicon">Ark Survival Evolved</a>
+            <a href="#"><img src="assets/game server.png" class="gameicon">Palworld</a>
           </div>
         </div>
 
@@ -50,15 +54,15 @@
         </div>
       </div>
 
-<div class="desktop-actions">
-  <button class="login-btn">Login</button>
-  <button class="order-btn">
-     <svg class="icon-left" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
-      <path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm0 2c-4.418 0-8 2.239-8 5v1h16v-1c0-2.761-3.582-5-8-5z" fill="currentColor"/>
-    </svg>
-    Account
-  </button>
-</div>
+      <div class="desktop-actions">
+        <button class="login-btn">Login</button>
+        <button class="order-btn">
+          <svg class="icon-left" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+            <path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm0 2c-4.418 0-8 2.239-8 5v1h16v-1c0-2.761-3.582-5-8-5z" fill="currentColor"/>
+          </svg>
+          Account
+        </button>
+      </div>
 
       <button class="hamburger" id="hamburger">
         <span id="hamburger-icon">&#9776;</span>
@@ -66,10 +70,9 @@
       </button>
     </div>
 
-    <!-- ✅ MOBILE MENU -->
     <div class="mobile-menu" id="mobileMenu">
       <a href="#">Home</a>
-      <a href="#">Partnerships</a>
+      <a href="#">Terms&Conditions</a>
 
       <button class="mobile-dropdown-toggle" id="supportToggle">
         <span>Servers</span>
@@ -92,25 +95,82 @@
         <a href="#">Affiliates</a>
       </div>
 
-       
+      <div class="mobile-actions">
+        <button class="login-btn">
+          <svg class="icon-left" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+            <path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm0 2c-4.418 0-8 2.239-8 5v1h16v-1c0-2.761-3.582-5-8-5z" fill="currentColor"/>
+          </svg>
+          Account
+        </button>
 
-<div class="mobile-actions">    
-  <button class="login-btn">
-    <svg class="icon-left" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
-      <path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm0 2c-4.418 0-8 2.239-8 5v1h16v-1c0-2.761-3.582-5-8-5z" fill="currentColor"/>
-    </svg>
-    Account
-  </button>
-
-  <button class="login-btn">
-    <svg class="icon-left" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
-      <path d="M10 17l5-5-5-5v3H3v4h7v3zm9-12H9a2 2 0 0 0-2 2v2h2V7h10v10H9v-2H7v2a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2z" fill="currentColor"/>
-    </svg>
-    Login
-  </button>
-</div>
-
+        <button class="login-btn">
+          <svg class="icon-left" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+            <path d="M10 17l5-5-5-5v3H3v4h7v3zm9-12H9a2 2 0 0 0-2 2v2h2V7h10v10H9v-2H7v2a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2z" fill="currentColor"/>
+          </svg>
+          Login
+        </button>
+      </div>
+    </div>
   </nav>
+   
+  <!-- Landing contents start -->
+  <div class="container">
+    <div class="hero-left">
+      <h1>Host Your Game<br />On <span class="Cloud">Cloud</span></h1>
+      <div class="sub">
+        Fast, reliable Game hosting with 1-click modpacks, powerful control panel and 24/7 support — ready in seconds.
+      </div>
+
+      <div class="cta-row">
+        <button class="btn-primary">Order Now</button>
+        <button class="btn-ghost">See Plans</button>
+      </div>
+
+      <div class="features">
+        <div class="feature">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2v6" stroke="#9aa8b3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M5 12h14" stroke="#9aa8b3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          Java & Bedrock Edition Servers
+        </div>
+        <div class="feature">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2v20" stroke="#9aa8b3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          24/7 Technical Support
+        </div>
+      </div>
+    </div>
+
+
+    <aside class="right-col">
+           <div class="hover-pop">
+  <img src="assets/Copper_Golem.png" alt="Server Preview" class="pop-img">
+</div>
+      <div class="announce">
+        <div>
+          <div style="font-weight:700;font-size:15px">Copper Age Update</div>
+          <div style="font-size:12px;opacity:0.95">Minecraft 1.21.9</div>
+        </div>
+        <div style="opacity:0.95">
+          <svg width="46" height="46" viewBox="0 0 24 24" fill="none">
+            <rect width="24" height="24" rx="4" fill="#fff" opacity="0.12" />
+          </svg>
+        </div>
+      </div>
+<div class="headpop-wrapper">
+  <img src="assets/headpop.png" alt="Voxel House" class="headpop">
+
+  <!-- Smoke animation -->
+  <div class="chimney-smoke">
+    <div class="smoke-particle p1"></div>
+    <div class="smoke-particle p2"></div>
+    <div class="smoke-particle p3"></div>
+    <div class="smoke-particle p4"></div>
+    <div class="smoke-particle p5"></div>
+  </div>
+</div>
 
   <script src="script.js" defer></script>
 </body>
