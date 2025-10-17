@@ -5,6 +5,59 @@
   font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
+.parallax-bg {
+  position: fixed;
+  inset: 0; 
+  pointer-events: none;
+  background:
+    /* Topmost: left-to-right soft purple/blue focus gradient */
+    linear-gradient(
+      to right,
+      rgba(10, 0, 30, 0.85) 20%,   /* darker side for text */
+      rgba(20, 0, 60, 0.55) 40%, 
+      rgba(0, 0, 0, 0.25) 100%
+    ),
+
+    /* Second: subtle left-side tint */
+    linear-gradient(
+      to left,
+      rgba(10, 0, 30, 1) 10%, 
+      rgba(20, 0, 60, 0.55) 40%, 
+      rgba(0, 0, 0, 0.25) 100%
+    ),
+
+    /* Bottom layer: your actual background image */
+    url('assets/Copper_golem background.jpg') center center / cover no-repeat;
+
+  will-change: transform;
+  transform: translate3d(0,0,0);
+  z-index: 0;
+  transition: opacity 0.4s ease;
+  opacity: 1; /* keep it visible */
+  
+}
+
+.promo-banner,
+nav,
+.container,
+.hero,
+main,
+footer {
+  position: relative;
+  z-index: 2;
+}
+
+.parallax-bg.hidden { 
+  opacity: 0; 
+  pointer-events: none; 
+}
+
+header, main, section, nav, footer, .container, .hero {
+  position: relative;
+  z-index: 2;
+}
+
+
 body {
   background: linear-gradient(135deg, #1e1b4b 0%, #4c1d95 50%, #1e1b4b 100%);
   min-height: 100vh;
@@ -16,6 +69,7 @@ body {
   text-align: center;
   padding: 12px 16px;
   font-size: 14px;
+  
 }
 
 .promo-code {
@@ -25,6 +79,9 @@ body {
   font-weight: 600;
   margin-left: 8px;
 }
+
+
+/*Navigation links css rules start */
 
 nav {
   background: rgba(30, 27, 75, 0.8);
@@ -146,7 +203,7 @@ nav {
   color: #d1d5db;
   font-weight: 700;
   font-size: 13px;
-  text-transform: uppercase;
+  text-transform: none;
   text-decoration: none;
 }
 
@@ -480,161 +537,287 @@ nav {
   transform: rotate(180deg);
 }
 
+/*landing contents start*/
 
-
-
-
-
-
-
-
-header.hero {
-  display: flex;
-  gap: 36px;
-  align-items: flex-start;
-  padding: 120px 4% 60px;
-  min-height: 86vh;
-  font-size: large;
+* {
+  box-sizing: border-box;
 }
 
-/* Left column */
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background: radial-gradient(1200px 600px at 10% 10%, rgba(14, 40, 80, 0.45), transparent),
+    radial-gradient(900px 500px at 95% 85%, rgba(60, 20, 40, 0.22), transparent),
+    linear-gradient(180deg, #071224 0%, #071827 100%);
+  color: #e6eef8;
+  padding: 40px 18px;
+}
+
+/* Layout */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 28px;
+  align-items: start;
+}
+
+/* Left hero */
 .hero-left {
-  flex: 1;
-  max-width: 760px;
-  margin-top: 100px;
-  padding: 10px 20px;
-  font-size: 1rem; /* 25% bigger than default */
-  margin-left: -140px;
+  padding: 30px 24px 36px 24px;
+  margin-top: 35px;
 }
 
-.trust-pill {
-  display: inline-block;
-  background: rgba(255,255,255,0.05);
-  padding: 7px 12px;
-  border-radius: 10px;
-  color: var(--text);
-  font-weight: 700;
-  margin-bottom: 16px;
+h1 {
+  font-family: poppins;
+  font-weight: 1000;
+  font-size: 65px;
+  line-height: 1.1;
+  margin: 2px 0 12px;
 }
-.hero-left h1 {
-  font-family: 'Oxanium', 'Poppins';
-  font-size: 78px;
-  line-height: 1.02;
-  margin-bottom: 8px;
-  letter-spacing: -1px;
-  color: #cae2e7;
-  text-shadow: 0 10px 40px rgba(0,227,255,0.06);
-}
-.hero-left h1 .accent { color: var(--cyan); }
-.hero-lead {
+
+.sub {
   color: var(--muted);
-  font-size: 18px;
-  max-width: 680px;
-  margin-bottom: 22px;
+  font-size: 16px;
+  margin-bottom: 20px;
+  max-width: 640px;
 }
 
-/* Hero buttons*/
-.ctas {
+.cta-row {
   display: flex;
-  gap: 104px;
+  gap: 12px;
   align-items: center;
-  margin-bottom: 8px;
-  margin-top: 80px;
+  margin-bottom: 20px;
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, #0bd3ff, #2be3a6);
+  color: #04202a;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.btn-ghost {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: var(--muted);
+  padding: 10px 16px;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.features {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.feature {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  color: var(--muted);
+  font-weight: 600;
+  font-size: 14px;
 }
 
 
-.primary-cta {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 6px;
-  padding: 16px 34px;
+
+.announce {
+  background: linear-gradient(90deg, #b5581a, #a45f19);
+  padding: 14px;
   border-radius: 14px;
-  background: linear-gradient(180deg, rgba(6,22,28,0.6), rgba(6,22,28,0.45));
-  backdrop-filter: blur(6px);
+  color: #fff;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 70px;}
+
+
+ /* Responsive */
+@media (max-width: 900px) {
+  .container {
+    grid-template-columns: 10fr;
+  }
+
+}
+
+@media (max-width: 520px) {
+  body {
+    padding: 22px 12px;
+  }
+  .container {
+    gap: 18px;
+  }
+  h1 {
+    font-size: 50px;
+  }
+  .sub {
+    font-size: 14px;
+  }
+  .cta-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .btn-primary,
+  .btn-ghost {
+    width: 100%;
+  }
+}
+
+.headpop-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.headpop {
+  position: relative;
+  right: 36px;      /* same as before */
+  bottom: 18px;
+  width: 520px;
+  z-index: 80;
+}
+
+/* Smoke rising from chimney */
+.chimney-smoke {
+  position: absolute;
+  left: 23%;         /* adjust horizontally to match chimney center */
+  bottom: 60%;       /* adjust vertically to sit on chimney top */
+  width: 100px;
+  height: 160px;
+  pointer-events: none;
+  overflow: visible;
+  z-index: 200;
+}
+
+/* Smoke particles */
+.smoke-particle {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 12px;
+  height: 12px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.35));
+  border-radius: 2px;
+  opacity: 0;
+  transform: translateX(-50%) scale(0.9);
+  filter: blur(1.2px);
+  animation: riseSmoke 3s linear infinite;
+}
+
+/* Each particle drifts differently */
+.p1 { animation-delay: 0s;   --driftX: -10px; --rot: -6deg; }
+.p2 { animation-delay: 0.5s; --driftX: 8px;   --rot: 6deg; }
+.p3 { animation-delay: 1s;   --driftX: -6px;  --rot: -4deg; }
+.p4 { animation-delay: 1.5s; --driftX: 12px;  --rot: 8deg; }
+.p5 { animation-delay: 2s;   --driftX: -8px;  --rot: -5deg; }
+
+/* Keyframes for smoke motion */
+@keyframes riseSmoke {
+  0% {
+    transform: translate(-50%, 0) scale(0.9) rotate(0deg);
+    opacity: 0;
+    filter: blur(1px);
+  }
+  10% {
+    opacity: 0.9;
+  }
+  60% {
+    transform: translate(-50%, -90px) translateX(var(--driftX)) scale(1.1) rotate(var(--rot));
+    opacity: 0.6;
+    filter: blur(2px);
+  }
+  100% {
+    transform: translate(-50%, -160px) translateX(calc(var(--driftX) * 1.5)) scale(1.2) rotate(calc(var(--rot) + 10deg));
+    opacity: 0;
+    filter: blur(3px);
+  }
+}
+
+/* Responsive scaling for mobile */
+@media (max-width: 768px) {
+  .headpop {
+    width: 100%;
+    right: 0;
+    bottom: 0;
+  }
+
+  .chimney-smoke {
+    left: 30%;
+    bottom: 53%;
+    width: 60px;
+    height: 10px;
+  }
+
+  .smoke-particle {
+    width: 8px;
+    height: 8px;
+    filter: blur(1px);
+  }
+}
+
+
+/* Container for the image */
+.hover-pop {
+  display: inline-block;
   position: relative;
   overflow: visible;
-  border: 1px solid rgba(0,220,255,0.08);
-  color: #eaffff;
-  font-weight: 700;
-  letter-spacing: 0.6px;
-  text-decoration: none;
-  transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
-  z-index: 1;
+  transition: transform 0.25s ease;
 }
 
+/* The image itself */
+.pop-img {
+  display: block;
+  width: 60px;           /* adjust as needed */
+  height: 90px;
+  border: none;
+  outline: none;
+  border-radius: 0;       /* no border */
+  box-shadow: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  transition: transform 0.4s cubic-bezier(.18,.89,.32,1.28), 
+              filter 0.4s ease, 
+              opacity 0.4s ease; 
 
-.primary-cta::before{
-  content: "";
-  position: absolute;
-  inset: -8px;
-  border-radius: 20px;
-  background: linear-gradient(90deg, rgba(0,230,255,0.20), rgba(0,150,255,0.15));
-  filter: blur(18px);
-  opacity: 0.6;
-  z-index: -1;
-  transition: filter .18s ease, opacity .18s ease;
+  margin-bottom: -250px;
+  margin-left: 320px;
 }
 
-
-.primary-cta::after{
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 14px;
-  pointer-events: none;
-  box-shadow: inset 0 0 18px rgba(0,255,240,0.04);
-  mix-blend-mode: screen;
+/* Hover effect — pops upward with subtle glow */
+.hover-pop:hover .pop-img {
+  transform: translateY(-18px) scale(1.04);
+  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.45));
+  opacity: 1;
 }
 
-
-.primary-cta .cta-label {
-  font-size: 15px;
-  color: #cfffff;
+/* Optional: smooth “return” on mouse leave */
+.hover-pop .pop-img:active {
+  transform: translateY(-6px) scale(1.01);
 }
 
-.primary-cta .cta-sub {
-  font-size: 12px;
-  color: rgba(200,255,255,0.6);
-  font-weight: 600;
-}
-
-
-.primary-cta:hover,
-.primary-cta:focus {
-  transform: translateY(-4px) scale(1.02);
-  box-shadow:
-    0 6px 30px rgba(0,210,255,0.12),
-    0 0 40px rgba(0,210,255,0.08);
-}
-
-.primary-cta:hover::before,
-.primary-cta:focus::before {
-  filter: blur(26px);
-  opacity: 0.95;
-}
-
-.cta-secondary {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 18px;
-  border-radius: 12px;
-  border: 1px solid rgba(0,220,255,0.12);
-  background: transparent;
-  color: rgba(200,255,255,0.9);
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 13px;
-  transition: background .16s ease, transform .12s ease;
-}
-
-.cta-secondary:hover {
-  background: rgba(0,220,255,0.03);
-  transform: translateY(-2px);
-}
-/* make sure hero is positioned and above the grid */
-.hero {
-  position: relative; /* needed for the pseudo to position inside hero */
-  z-index: 2;         /* content above the grid */
+/* Responsive scaling */
+@media (max-width: 768px) {
+  .pop-img {
+    width: 80px;
+    transform: none;
+  margin-bottom: -250px;
+  margin-left: 220px;
+  height: auto;
+  }
+  .hover-pop:hover .pop-img {
+    transform: translateY(-10px) scale(1.02);
+  }
 }
