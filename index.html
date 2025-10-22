@@ -16,13 +16,15 @@
     FOR EXTRA 7%OFF USE <span class="promo-code">NEW10</span>
   </div>
   <div class="parallax-bg" aria-hidden="true"></div>
+
   <!--Navigation links-->
   <nav>
     <div class="nav-container">
-      <a href="#" class="logo">
-        <div class="logo-icon"></div>
-        <span class="logo-text"><span class="wise">LUMOX</span>CLOUD</span>
-      </a>
+<a href="#" class="logo">
+  <img src="assets/lumox.jpeg" alt="LumoxCloud Logo" class="logo-img" />
+  <span class="logo-text"><span class="wise">LUMOX</span>CLOUD</span>
+</a>
+
 
       <div class="desktop-menu">
         <a href="#">Home</a>
@@ -114,7 +116,8 @@
   </nav>
    
   <!-- Landing contents start -->
-  <div class="container">
+  <section class="hero-section landing-grid container">
+
     <div class="hero-left">
       <h1>Host Your Game<br />On <span class="Cloud">Cloud</span></h1>
       <div class="sub">
@@ -126,28 +129,29 @@
         <button class="btn-ghost">See Plans</button>
       </div>
 
-      <div class="features">
-        <div class="feature">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-            <path d="M12 2v6" stroke="#9aa8b3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
-            <path d="M5 12h14" stroke="#9aa8b3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
-          </svg>
-          Java & Bedrock Edition Servers
-        </div>
-        <div class="feature">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-            <path d="M12 2v20" stroke="#9aa8b3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
-          </svg>
-          24/7 Technical Support
-        </div>
+      <!-- 💠 New Feature Chips -->
+      <div class="feature-row" role="list" aria-label="features">
+       <div class="feature-item" role="listitem">
+  <img src="assets/ryzen9.png" alt="Ryzen 9 Icon" class="fi-icon">
+  <span class="fi-text">RYZEN 9</span>
+</div>
+
+
+       <div class="feature-item" role="listitem">
+  <img src="assets/nvme.png" alt="Nvme Icon" class="fi-icon">
+  <span class="fi-text">NVME</span>
+</div>
+
+           <div class="feature-item" role="listitem">
+  <img src="assets/ecc.png" alt="ECC Icon" class="fi-icon">
+  <span class="fi-text">ECC RAM</span>
+</div>
       </div>
+      <!-- 💠 End Feature Chips -->
+
     </div>
 
-
     <aside class="right-col">
-           <div class="hover-pop">
-  <img src="assets/Copper_Golem.png" alt="Server Preview" class="pop-img">
-</div>
       <div class="announce">
         <div>
           <div style="font-weight:700;font-size:15px">Copper Age Update</div>
@@ -158,19 +162,21 @@
             <rect width="24" height="24" rx="4" fill="#fff" opacity="0.12" />
           </svg>
         </div>
+        <img src="assets/Copper_Golem.png" alt="Copper badge" class="announce-badge" width="64" height="64" loading="eager">
       </div>
-<div class="headpop-wrapper">
-  <img src="assets/headpop.png" alt="Voxel House" class="headpop">
 
-  <!-- Smoke animation -->
-  <div class="chimney-smoke">
-    <div class="smoke-particle p1"></div>
-    <div class="smoke-particle p2"></div>
-    <div class="smoke-particle p3"></div>
-    <div class="smoke-particle p4"></div>
-    <div class="smoke-particle p5"></div>
-  </div>
-</div>
+      <div class="headpop-wrapper">
+        <img src="assets/headpop.png" alt="Voxel House" class="headpop" width="600" height="400" loading="lazy">
+        <div class="chimney-smoke">
+          <div class="smoke-particle p1"></div>
+          <div class="smoke-particle p2"></div>
+          <div class="smoke-particle p3"></div>
+          <div class="smoke-particle p4"></div>
+          <div class="smoke-particle p5"></div>
+        </div>
+      </div>
+    </aside>
+  </section>
 
   <script src="script.js" defer></script>
 </body>

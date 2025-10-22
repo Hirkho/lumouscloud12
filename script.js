@@ -3,7 +3,18 @@
    true  => both dropdowns can stay open
    false => opening one closes the other
 ----------------------------- */
+
 const allowMultiple = true;
+
+document.documentElement.classList.add('preload');
+document.documentElement.style.overflowY = 'scroll';
+window.addEventListener('load', () => {
+  setTimeout(()=> {
+    document.documentElement.classList.remove('preload');
+    document.documentElement.classList.add('ready');
+  }, 80);
+});
+
 
 /* ----------------------------
    HAMBURGER MENU TOGGLE
