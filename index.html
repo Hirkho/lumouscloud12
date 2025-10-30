@@ -13,7 +13,7 @@
 <body>
    
   <div class="promo-banner">
-    FOR EXTRA 7%OFF USE <span class="promo-code">NEW10</span>
+    Launch offer 32% Off <span class="promo-code">LAUNCH100</span>
   </div>
   <div class="parallax-bg" aria-hidden="true"></div>
 
@@ -28,7 +28,7 @@
 
       <div class="desktop-menu">
         <a href="#">Home</a>
-        <a href="#">Terms</a>
+        <a href="terms&conditions.html">Terms</a>
 
         <div class="dropdown">
           <button class="dropdown-toggle">
@@ -36,7 +36,7 @@
             <span class="arrow">&#9660;</span>
           </button>
           <div class="dropdown-content">
-            <a href="#"><img src="assets/dedicated server.png" class="Dedicatedicon">Minecraft</a>
+            <a href="minecraftplans.html"><img src="assets/dedicated server.png" class="Dedicatedicon">Minecraft</a>
             <a href="#"><img src="assets/vps server.png" class="vpsicon">Project Zomboid</a>
             <a href="#"><img src="assets/web server.png" class="webicon">Ark Survival Evolved</a>
             <a href="#"><img src="assets/game server.png" class="gameicon">Palworld</a>
@@ -49,7 +49,7 @@
             <span class="arrow">&#9660;</span>
           </button>
           <div class="dropdown-content">
-            <a href="#">About</a>
+            <a href="privacy.html">Privacy</a>
             <a href="#">Blog</a>
             <a href="#">Affiliates</a>
           </div>
@@ -57,7 +57,8 @@
       </div>
 
       <div class="desktop-actions">
-        <button class="login-btn">Login</button>
+   <button class="login-btn" onclick="window.location.href='Account.html'">Login</button>
+
         <button class="order-btn">
           <svg class="icon-left" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
             <path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm0 2c-4.418 0-8 2.239-8 5v1h16v-1c0-2.761-3.582-5-8-5z" fill="currentColor"/>
@@ -74,14 +75,14 @@
 
     <div class="mobile-menu" id="mobileMenu">
       <a href="#">Home</a>
-      <a href="#">Terms&Conditions</a>
+      <a href="terms&conditions.html">Terms&Conditions</a>
 
       <button class="mobile-dropdown-toggle" id="supportToggle">
         <span>Servers</span>
         <span class="arrow">&#9660;</span>
       </button>
       <div class="mobile-dropdown-content" id="supportDropdown">
-        <a href="#"><img src="assets/dedicated server.png" class="Dedicatedicon">DEDICATED SERVERS</a>
+        <a href="minecraftplans.html"><img src="assets/dedicated server.png" class="Dedicatedicon">Minecraft</a>
         <a href="#"><img src="assets/vps server.png" class="vpsicon">VPS SERVERS</a>
         <a href="#"><img src="assets/web server.png" class="webicon">WEB SERVERS</a>
         <a href="#"><img src="assets/game server.png" class="gameicon">GAME SERVERS</a>
@@ -92,7 +93,7 @@
         <span class="arrow">&#9660;</span>
       </button>
       <div class="mobile-dropdown-content" id="moreDropdown">
-        <a href="#">About</a>
+        <a href="privacy.html">Privacy</a>
         <a href="#">Blog</a>
         <a href="#">Affiliates</a>
       </div>
@@ -105,12 +106,12 @@
           Account
         </button>
 
-        <button class="login-btn">
+         <button class="login-btn" onclick="window.location.href='Account.html'">
           <svg class="icon-left" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
             <path d="M10 17l5-5-5-5v3H3v4h7v3zm9-12H9a2 2 0 0 0-2 2v2h2V7h10v10H9v-2H7v2a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2z" fill="currentColor"/>
           </svg>
-          Login
-        </button>
+          login
+       </button>
       </div>
     </div>
   </nav>
@@ -119,15 +120,21 @@
   <section class="hero-section landing-grid container">
 
     <div class="hero-left">
-      <h1>Host Your Game<br />On <span class="Cloud">Cloud</span></h1>
+      <h1>Host Your <span class="changing text">Game</span><br />On <span class="Cloud">Cloud</span></h1>
       <div class="sub">
         Fast, reliable Game hosting with 1-click modpacks, powerful control panel and 24/7 support — ready in seconds.
       </div>
 
-      <div class="cta-row">
-        <button class="btn-primary">Order Now</button>
-        <button class="btn-ghost">See Plans</button>
-      </div>
+<div class="cta-row">
+  <button class="btn-primary">
+    <svg class="icon-left" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M7 4h-2l-1 2H0v2h2l3.6 7.59L4.25 18c-.13.23-.25.46-.25.75A1.25 1.25 0 0 0 5.25 20h13.5v-2H6.42c-.07 0-.13-.03-.17-.09l.03-.06L7.1 16h8.45a1.25 1.25 0 0 0 1.11-.68L21 6H5.21L4.27 4zM7 18a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm10 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
+    </svg>
+    Order Now
+  </button>
+  
+  <button class="btn-ghost">See Plans</button>
+</div>
 
       <!-- 💠 New Feature Chips -->
       <div class="feature-row" role="list" aria-label="features">
@@ -144,7 +151,7 @@
 
            <div class="feature-item" role="listitem">
   <img src="assets/ecc.png" alt="ECC Icon" class="fi-icon">
-  <span class="fi-text">ECC RAM</span>
+  <span class="fi-text">DDR 4 RAM</span>
 </div>
       </div>
       <!-- 💠 End Feature Chips -->
@@ -178,6 +185,244 @@
     </aside>
   </section>
 
+  
+       <!-- Comparison -->
+<div class="wrap">
+    <div class="topline" id="topline"><div class="txt">WE'RE JUST BETTER</div></div>
+    <h1 class="hero" id="hero">The way game hosting was meant to be</h1>
+
+    <div class="compare-grid" id="grid">
+      <div class="big-card" id="bigCard">
+        <h3>Better bang for your buck</h3>
+
+        <ul class="provider-list">
+          <li class="provider">
+            <div class="provider-left">
+              <img src="assets/lumox.jpeg" alt="Lilypad" class="prov-icon">
+              <div class="prov-info">
+                <div class="prov-title">LumoxCloud</div>
+                <div class="prov-price">₹124/GB</div>
+              </div>
+            </div>
+            <div class="provider-right">
+              <div class="cpu">AMD Ryzen 5900xt <span class="muted">or equivalent</span></div>
+              <div class="bar-wrap" aria-hidden="true"><div class="bar" data-fill="86" style="background:linear-gradient(90deg,#0bd3ff,#2be3a6);"></div></div>
+            </div>
+          </li>
+
+          <li class="provider">
+            <div class="provider-left">
+              <img src="https://th.bing.com/th/id/ODL.31216a37e21681b28470a5d498d5bab8?w=80&h=80&c=10&r=0&o=6&cb=B&pid=23.1" alt="Apex" class="prov-icon">
+              <div class="prov-info">
+                <div class="prov-title">Apex Hosting</div>
+                <div class="prov-price">₹441/GB</div>
+              </div>
+            </div>
+            <div class="provider-right">
+              <div class="cpu">AMD Ryzen 5800X</div>
+              <div class="bar-wrap"><div class="bar" data-fill="56" style="background:linear-gradient(90deg,#f0c464,#f7a12a);"></div></div>
+            </div>
+          </li>
+
+          <li class="provider">
+            <div class="provider-left">
+              <img src="https://th.bing.com/th/id/ODL.180e9458775efa3cb21b96a57a4d5eff?w=80&h=80&c=10&r=0&o=6&cb=B&pid=23.1" alt="Bisect" class="prov-icon">
+              <div class="prov-info">
+                <div class="prov-title">Bisect Hosting</div>
+                <div class="prov-price">₹441/GB</div>
+              </div>
+            </div>
+            <div class="provider-right">
+              <div class="cpu">Intel Xeon E5-2643</div>
+              <div class="bar-wrap"><div class="bar" data-fill="48" style="background:linear-gradient(90deg,#f6a84a,#cf6e2a);"></div></div>
+            </div>
+          </li>
+
+          <li class="provider">
+            <div class="provider-left">
+              <img src="https://th.bing.com/th/id/ODL.c5603bd84b056a1f81cedbc442c48fbb?w=80&h=80&c=10&r=0&o=6&cb=B&pid=23.1" alt="Shockbyte" class="prov-icon">
+              <div class="prov-info">
+                <div class="prov-title">Shockbyte</div>
+                <div class="prov-price">₹265/GB</div>
+              </div>
+            </div>
+            <div class="provider-right">
+              <div class="cpu">Intel Xeon E-2236</div>
+              <div class="bar-wrap"><div class="bar" data-fill="30" style="background:linear-gradient(90deg,#ff6b6b,#d64545);"></div></div>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="right-col">
+        <div class="right-stack" id="rightStack">
+          <div class="small-card">
+            <h4>No noisy neighbours</h4>
+            <p>Lilypad ensures you always have access to the resources you're paying for, especially when you need them the most.</p>
+          </div>
+
+          <div class="small-card">
+            <h4>Top notch support</h4>
+            <p>As one of our customers once said, “good, honest customer support that will always have time for you” — thanks Max.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="tall-card" id="tallCard">
+        <div>
+          <h4>Any modpack, anytime</h4>
+          <p>Start playing your favorite modpacks from CurseForge in minutes, or create your own alongside our many supported platforms.</p>
+
+         
+          <div class="mod-strip" id="modStrip">
+            <div class="mod-track" id="modTrack">
+           
+              <div class="mod-item"><img src="https://media.forgecdn.net/avatars/thumbnails/902/980/64/64/638351686289109804.png" alt="mod1"></div>
+              <div class="mod-item"><img src="https://media.forgecdn.net/avatars/thumbnails/402/662/64/64/637610797055895331.png" alt="mod2"></div>
+              <div class="mod-item"><img src="https://media.forgecdn.net/avatars/thumbnails/396/11/64/64/637595005615179370.png" alt="mod3"></div>
+              <div class="mod-item"><img src="https://media.forgecdn.net/avatars/thumbnails/935/544/64/64/638412386316055428.png" alt="mod4"></div>
+              <div class="mod-item"><img src="https://media.forgecdn.net/avatars/thumbnails/54/102/64/64/636131217371752080.png" alt="mod5"></div>
+              <div class="mod-item"><img src="https://media.forgecdn.net/avatars/thumbnails/358/166/64/64/637518566737953306_animated.gif" alt="mod6"></div>
+            </div>
+          </div>
+        </div>
+
+        <div style="opacity:.95;color:var(--muted);font-size:13px">The possibilities are endless with lumoxcloud.</div>
+      </div>
+    </div>
+  </div>
+
+  
+<!-- ===== Server Stats Section — paste where you want it in the body ===== -->
+<section id="server-stats" aria-label="Server statistics" class="stats-section">
+  <div class="stats-inner container">
+
+    <!-- ✨ Added section heading -->
+    <div class="stats-header">
+      <h2 class="stats-title">Our Server Stats</h2>
+      <p class="stats-subtitle">Real-time overview of LumoxCloud performance and uptime</p>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card stat-gauge" aria-hidden="false">
+        <div class="gauge-wrap" aria-hidden="true">
+          <svg class="gauge" viewBox="0 0 120 120" width="160" height="160" role="img" aria-hidden="true">
+            <defs>
+              <linearGradient id="gaugeGrad" x1="0" x2="1">
+                <stop offset="0%" stop-color="#0bd3ff"/>
+                <stop offset="100%" stop-color="#2be3a6"/>
+              </linearGradient>
+            </defs>
+            <circle cx="60" cy="60" r="48" stroke="#222" stroke-width="14" fill="none"></circle>
+            <circle class="gauge-ring" cx="60" cy="60" r="48" stroke="url(#gaugeGrad)" stroke-width="14" stroke-linecap="round" fill="none" stroke-dasharray="302.0" stroke-dashoffset="302.0"></circle>
+            <text x="60" y="66" text-anchor="middle" class="gauge-value">0%</text>
+          </svg>
+        </div>
+        <div class="stat-body">
+          <div class="stat-title">resources utilised</div>
+          <div class="stat-sub">Current CPU / RAM usage</div>
+        </div>
+      </div>
+
+      <div class="stat-card stat-simple">
+        <div class="stat-number" data-target="69" aria-live="polite">0</div>
+        <div class="stat-title">players online</div>
+      </div>
+
+      <div class="stat-card stat-simple">
+        <div class="stat-number" data-target="64" aria-live="polite">0</div>
+        <div class="stat-title">servers running</div>
+      </div>
+
+      <div class="stat-card stat-highlight">
+        <div class="highlight-number" data-target="100">0%</div>
+        <div class="highlight-text">free to use, for everyone</div>
+        <div class="highlight-figure" aria-hidden="true">
+          <img src="assets/steve_alex.png" alt="" width="156" height="156" />
+        </div>
+      </div>
+    </div>
+
+    <div class="stats-footer">
+      <div class="partner">
+        <img src="assets/lumox.jpeg" alt="LumoxCloud" width="36" height="36" /> 
+        <div class="partner-text">Servers hosted by  <strong>Lumox</strong></div>
+      </div>
+      <a href="minecraftplans.html" class="btn-ghost small">View Plans</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-inner container">
+    
+    <div class="footer-grid">
+      <!-- Brand -->
+      <div class="footer-brand">
+        <a href="#" class="footer-logo">
+          <img src="assets/lumox.jpeg" alt="LumoxCloud Logo">
+          <span><span class="wise">LUMOX</span>CLOUD</span>
+        </a>
+        <p class="footer-desc">
+          High-performance game hosting for Minecraft, Palworld, and more — powered by Ryzen 9 and pure passion for gamers.
+        </p>
+        <div class="footer-socials">
+          <a href="#" aria-label="Discord"><img src="https://static.vecteezy.com/system/resources/previews/018/930/604/original/discord-logo-discord-icon-transparent-free-png.png" alt="Discord"></a>
+          <a href="#" aria-label="Twitter"><img src="https://imagepng.org/wp-content/uploads/2018/08/twitter-icone.png" alt="Twitter"></a>
+          <a href="#" aria-label="YouTube"><img src="https://www.freeiconspng.com/uploads/logo-youtube-png-clipart-11.png" alt="YouTube"></a>
+        </div>
+      </div>
+
+      <!-- Links -->
+      <div class="footer-links">
+        <h3>Company</h3>
+        <a href="#">About</a>
+        <a href="#">Blog</a>
+        <a href="partnership.html">Partnerships</a>
+        <a href="#">Affiliates</a>
+      </div>
+
+      <div class="footer-links">
+        <h3>Support</h3>
+        <a href="#">Docs</a>
+        <a href="#">Knowledgebase</a>
+        <a href="#">Report Issue</a>
+        <a href="terms&conditions.html">Terms & Conditions</a>
+      </div>
+
+      <div class="footer-links">
+        <h3>Servers</h3>
+        <a href="#">Minecraft</a>
+        <a href="#">Palworld</a>
+        <a href="#">Project Zomboid</a>
+        <a href="#">Ark Survival</a>
+      </div>
+    </div>
+    <!-- 💳 Payments Accepted -->
+<div class="footer-payments">
+  <span class="pay-title">Payments Accepted</span>
+  <div class="payment-icons">
+    <img src="https://tse1.mm.bing.net/th/id/OIP.YqP7flNCE1RSYJSW13DZMwAAAA?cb=12&w=474&h=248&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Visa" />
+    <img src="https://pngimg.com/uploads/mastercard/mastercard_PNG23.png" alt="Mastercard" />
+    <img src="https://tse4.mm.bing.net/th/id/OIP.8fGkf1VfyrZ95Xpna-mzZgHaEC?cb=12&w=1593&h=870&rs=1&pid=ImgDetMain&o=7&rm=3" alt="PayPal" />
+    <img src="https://t3.ftcdn.net/jpg/05/60/50/16/360_F_560501607_x7crxqBWbmbgK2k8zOL0gICbIbK9hP6y.jpg" alt="UPI" />
+    <img src="https://tse3.mm.bing.net/th/id/OIP.aeHvnFKyesLUoES72tc1owHaEc?cb=12&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Razorpay" />
+  </div>
+</div>
+
+    <div class="footer-bottom">
+      <div class="footer-text">
+      <span id="year"></span> 
+      </div>
+      <div class="footer-right">
+        <a href="privacy.html">Privacy</a>
+        <a href="terms&conditions.html">Terms</a>
+      </div>
+    </div>
+  </div>
+</footer> 
+
   <script src="script.js" defer></script>
+   
 </body>
 </html>

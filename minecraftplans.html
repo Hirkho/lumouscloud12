@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LumoxCloud — Minecraft Hosting Plans</title>
+
+  <!-- Fonts & base CSS -->
+  <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;600;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Page-specific polish -->
+  <style>
+    :root{
+      --panel: rgba(255,255,255,0.03);
+      --panel-b: rgba(255,255,255,0.06);
+      --ink: #e8f3ff;
+      --muted: #9fb2d6;
+      --accent-2: #00bfff;
+      --accent: #2be3a6;
+      --card-radius: 14px;
+    }
+    body { background: radial-gradient(1200px 600px at 10% 10%, #0b151d, #07121a 60%); color: var(--ink); }
+
+    /* hero */
+    .plans-hero {
+      max-width: var(--maxw, 1280px);
+      margin: clamp(18px, 4vw, 42px) auto 10px;
+      padding: 0 16px;
+      display: grid;
+      grid-template-columns: 1.25fr 1fr;
+      gap: 28px;
+      align-items: center;
+    }
+    .plans-hero h1{
+      font-family: 'Oxanium','Poppins',sans-serif;
+      font-size: clamp(32px, 5vw, 56px);
+      line-height: 1.08;
+      margin: 6px 0 10px;
+    }
+    .plans-hero .sub{
+      color: var(--muted);
+      max-width: 62ch;
+      font-size: 16px;
+    }
+    .trusts{
+      display:flex; gap:16px; align-items:center; margin-top:16px; flex-wrap: wrap;
+    }
+    .trusts .chip{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 12px; border-radius: 999px;
+      background: var(--panel); border: 1px solid var(--panel-b);
+      font-size: 12px; color: var(--ink); font-weight: 700;
+    }
+    .trusts .dot{ width:8px; height:8px; border-radius:50%; background: #2be3a6; box-shadow: 0 0 14px #2be3a6; }
+
+    /* billing toggle */
+    .billing { display:flex; align-items:center; gap:10px; justify-content:flex-end; }
+    .switch {
+      position:relative; width:64px; height:32px; background:var(--panel);
+      border:1px solid var(--panel-b); border-radius:999px; cursor:pointer;
+    }
+    .switch input{ display:none; }
+    .knob{
+      position:absolute; top:3px; left:3px; width:26px; height:26px;
+      background:linear-gradient(90deg,#0bd3ff,#2be3a6);
+      border-radius:50%; transition:.22s transform;
+      box-shadow:0 6px 16px rgba(0,0,0,.35);
+    }
+    .switch input:checked + .knob{ transform: translateX(32px); }
+    .save{
+      font-size:12px; color:#9cffd7; background:rgba(43,227,166,.1);
+      border:1px solid rgba(43,227,166,.25); padding:6px 10px; border-radius:999px; font-weight:800; letter-spacing:.04em;
+    }
+
+    /* plan grid */
+    .plans-wrap{ max-width: var(--maxw,1280px); margin: 12px auto 48px; padding: 0 16px; }
+    .plan-grid{ display:grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 18px; }
+    @media (max-width: 1200px){ .plan-grid{ grid-template-columns: repeat(3,1fr); } }
+    @media (max-width: 900px){ .plan-grid{ grid-template-columns: repeat(2,1fr); } }
+    @media (max-width: 560px){ .plan-grid{ grid-template-columns: 1fr; } }
+
+    .card{
+      position:relative;
+      background: var(--panel);
+      border:1px solid var(--panel-b);
+      border-radius: var(--card-radius);
+      padding: 16px;
+      display:flex; flex-direction:column; gap:12px;
+      box-shadow: 0 18px 48px rgba(0,0,0,.25);
+      overflow:hidden;
+    }
+    .card.pro{
+      border:1px solid rgba(43,227,166,.5);
+      box-shadow: 0 18px 58px rgba(43,227,166,.15), inset 0 0 0 1px rgba(43,227,166,.15);
+    }
+    .tag{
+      position:absolute; top:12px; right:12px;
+      background: linear-gradient(90deg,#0bd3ff,#2be3a6);
+      color:#062018; font-weight:900; letter-spacing:.06em; font-size:11px;
+      padding:6px 10px; border-radius:999px;
+      z-index: 3;
+    }
+    .title{ font-weight: 900; letter-spacing: .02em; }
+    .price{ display:flex; align-items:flex-end; gap:8px; }
+    .price .amount{
+      font-size: 34px; font-weight: 900; line-height: 1;
+      background: linear-gradient(90deg,#fff,#a8c3ff);
+      -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color: transparent;
+    }
+    .price .per{ color: var(--muted); font-weight:700; font-size:12px; letter-spacing:.04em; }
+
+    .specs{ margin: 4px 0 8px; display:grid; gap:8px; }
+    .spec{ display:flex; align-items:center; gap:8px; color:#dfe8ff; font-weight:700; font-size:13px; }
+    .spec .dot{ width:8px; height:8px; border-radius:50%; background: #0bd3ff; }
+    .cta{ margin-top:auto; display:flex; gap:8px; }
+    .btn {
+      flex:1; display:inline-flex; align-items:center; justify-content:center; gap:8px;
+      font-weight:800; letter-spacing:.02em; padding:12px 14px; border-radius:12px; cursor:pointer;
+      border:1px solid var(--panel-b); color: var(--ink); background: transparent;
+      transition: .18s transform, .18s background, .18s border-color;
+    }
+    .btn:hover{ transform: translateY(-2px); border-color: rgba(255,255,255,.18); background: rgba(255,255,255,.04); }
+    .btn-primary{
+      background:linear-gradient(90deg,#0bd3ff,#2be3a6); color:#052028; border:none;
+      box-shadow: 0 10px 26px rgba(11,211,255,.25);
+    }
+    .inc{ display:flex; gap:10px; flex-wrap:wrap; margin-top:6px; }
+    .pill{
+      font-size:11px; padding:6px 8px; border-radius:999px; color:#bfe9ff;
+      border:1px dashed rgba(255,255,255,.16); background:rgba(255,255,255,.02); font-weight:800; letter-spacing:.04em;
+    }
+
+    /* NEW: plan media (custom image per plan) */
+    .plan-media{
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/9;
+      border-radius: 12px;
+      overflow: hidden;
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255,255,255,0.06);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.02);
+    }
+    .plan-media img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: saturate(1.05) contrast(1.03);
+      transition: transform .35s ease, filter .35s ease;
+    }
+    .card:hover .plan-media img{ transform: scale(1.03); filter: saturate(1.12) contrast(1.06); }
+    .plan-badge{
+      position: absolute;
+      left: 10px;
+      bottom: 10px;
+      padding: 6px 10px;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .05em;
+      background: rgba(0,0,0,0.45);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 999px;
+      color: #e9f6ff;
+      backdrop-filter: blur(4px);
+    }
+
+    /* compare */
+    .compare{
+      max-width: var(--maxw,1280px);
+      margin: 8px auto 42px;
+      padding: 0 16px;
+      background: var(--panel);
+      border:1px solid var(--panel-b);
+      border-radius: var(--card-radius);
+    }
+    .compare h3{ padding:16px; }
+    .table{ width:100%; border-collapse: collapse; font-size: 14px; }
+    .table th, .table td{ padding:12px 16px; border-top:1px solid rgba(255,255,255,.07); }
+    .table th{ text-align:left; color:#bcd4ff; font-weight:800; letter-spacing:.03em; }
+    .yes{ color:#50f5b1; font-weight:900; }
+    .no{ color:#ff7b7b; font-weight:900; }
+    .muted{ color: var(--muted); }
+
+    /* FAQ */
+    .faq{
+      max-width: var(--maxw,1280px);
+      margin: 8px auto 64px;
+      padding: 0 16px;
+      display:grid; grid-template-columns: 1fr 1fr; gap: 18px;
+    }
+    @media (max-width: 900px){ .faq{ grid-template-columns: 1fr; } }
+    .qa{ background: var(--panel); border:1px solid var(--panel-b); border-radius: 12px; padding: 14px; }
+    .qa summary{ list-style:none; cursor:pointer; font-weight:800; }
+    .qa summary::-webkit-details-marker{ display:none; }
+    .qa p{ color: var(--muted); margin-top:8px; }
+
+    /* payments strip */
+    .payments{
+      display:flex; align-items:center; gap: 12px; flex-wrap:wrap;
+      padding: 10px; border-radius: 12px; background: var(--panel); border:1px solid var(--panel-b);
+    }
+    .payments img{ height:22px; opacity:.9; }
+
+    .sublabel{ font-size: 12px; color: var(--muted); font-weight:700; letter-spacing:.04em; }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAV (matches your site) ===== -->
+  <nav>
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <img src="assets/lumox.jpeg" alt="LumoxCloud Logo" class="logo-img" />
+        <span class="logo-text"><span class="wise">LUMOX</span>CLOUD</span>
+      </a>
+
+      <div class="desktop-menu">
+        <a href="index.html">Home</a>
+        <a href="terms&conditions.html">Terms</a>
+
+        <div class="dropdown">
+          <button class="dropdown-toggle">
+            <span>Servers</span><span class="arrow">&#9660;</span>
+          </button>
+          <div class="dropdown-content">
+            <a href="minecraft.html"><img src="assets/dedicated server.png" class="Dedicatedicon">Minecraft</a>
+            <a href="#"><img src="assets/vps server.png" class="vpsicon">Project Zomboid</a>
+            <a href="#"><img src="assets/web server.png" class="webicon">Ark Survival Evolved</a>
+            <a href="#"><img src="assets/game server.png" class="gameicon">Palworld</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <button class="dropdown-toggle">
+            <span>More</span><span class="arrow">&#9660;</span>
+          </button>
+          <div class="dropdown-content">
+            <a href="privacy.html">Privacy</a>
+            <a href="#">Blog</a>
+            <a href="#">Affiliates</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="desktop-actions">
+        <button class="login-btn" onclick="window.location.href='Account.html'">Login</button>
+        <button class="order-btn" onclick="window.location.href='Account.html'">
+          <svg class="icon-left" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm0 2c-4.418 0-8 2.239-8 5v1h16v-1c0-2.761-3.582-5-8-5z" fill="currentColor"/></svg>
+          Account
+        </button>
+      </div>
+
+      <button class="hamburger" id="hamburger">
+        <span id="hamburger-icon">&#9776;</span>
+        <span id="close-icon" style="display:none;">&#10005;</span>
+      </button>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html">Home</a>
+      <a href="terms&conditions.html">Terms&Conditions</a>
+
+      <button class="mobile-dropdown-toggle" id="supportToggle">
+        <span>Servers</span><span class="arrow">&#9660;</span>
+      </button>
+      <div class="mobile-dropdown-content" id="supportDropdown">
+        <a href="minecraft.html"><img src="assets/dedicated server.png" class="Dedicatedicon">Minecraft</a>
+        <a href="#"><img src="assets/vps server.png" class="vpsicon">Project Zomboid</a>
+        <a href="#"><img src="assets/web server.png" class="webicon">Ark Survival</a>
+        <a href="#"><img src="assets/game server.png" class="gameicon">Palworld</a>
+      </div>
+
+      <button class="mobile-dropdown-toggle" id="moreToggle">
+        <span>More</span><span class="arrow">&#9660;</span>
+      </button>
+      <div class="mobile-dropdown-content" id="moreDropdown">
+        <a href="privacy.html">Privacy</a>
+        <a href="#">Blog</a>
+        <a href="#">Affiliates</a>
+      </div>
+
+      <div class="mobile-actions">
+        <button class="login-btn" onclick="window.location.href='Account.html'">
+          <svg class="icon-left" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M10 17l5-5-5-5v3H3v4h7v3zm9-12H9a2 2 0 0 0-2 2v2h2V7h10v10H9v-2H7v2a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2z" fill="currentColor"/></svg>
+          Login
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== Hero ===== -->
+  <section class="plans-hero">
+    <div>
+      <h1>Minecraft Hosting Plans</h1>
+      <p class="sub">Low-latency nodes • Ryzen 9 5900XT • NVMe • 24/7 support • Premium DDoS. Deploy in seconds with our panel.</p>
+      <div class="trusts">
+        <div class="chip"><span class="dot"></span> Uptime SLA 99.9%</div>
+        <div class="chip"><span class="dot"></span> Instant Modpack Installer</div>
+        <div class="chip"><span class="dot"></span> 1-Click Backups</div>
+      </div>
+    </div>
+
+    <div class="billing">
+      <span class="sublabel">Monthly</span>
+      <label class="switch" aria-label="Toggle yearly billing">
+        <input type="checkbox" id="billToggle">
+        <span class="knob"></span>
+      </label>
+      <span class="sublabel">Quaterly</span>
+      <span class="save">Save 15%</span>
+    </div>
+  </section>
+
+  <!-- ===== Plans (with custom images) ===== -->
+  <section class="plans-wrap" id="pricing">
+    <div class="plan-grid" id="planGrid">
+      <!-- Sprout -->
+      <div class="card">
+        <div class="plan-media">
+          <img src="assets/Sprout.png" alt="Sprout Plan Art" loading="lazy">
+          <span class="plan-badge">Starter</span>
+        </div>
+        <div class="title">Sprout</div>
+        <div class="price"><span class="amount" data-month="₹246" data-year="₹627"></span><span class="per">/Plan</span></div>
+        <div class="specs">
+          <div class="spec"><span class="dot"></span>2 GB RAM</div>
+          <div class="spec"><span class="dot"></span>1v CORE</div>
+          <div class="spec"><span class="dot"></span>NVMe Storage</div>
+          <div class="spec"><span class="dot"></span>DDoS Protection</div>
+          <div class="spec"><span class="dot"></span>Locations: IN</div>
+        </div>
+        <div class="inc">
+          <span class="pill">1-Click Modpacks</span>
+          <span class="pill">SFTP</span>
+          <span class="pill">99.9% SLA</span>
+        </div>
+        <div class="cta">
+          <button class="btn" data-ram="2">See Details</button>
+          <button class="btn btn-primary" data-order="sprout">Order Now</button>
+        </div>
+      </div>
+
+      <!-- Sapling -->
+      <div class="card">
+        <div class="plan-media">
+          <img src="assets/plan-sapling.jpg" alt="Sapling Plan Art" loading="lazy">
+          <span class="plan-badge">Popular</span>
+        </div>
+        <div class="title">Sapling</div>
+        <div class="price"><span class="amount" data-month="₹492" data-year="₹1697"></span><span class="per">/Plan</span></div>
+        <div class="specs">
+          <div class="spec"><span class="dot"></span>4 GB RAM</div>
+          <div class="spec"><span class="dot"></span>2v CORES</div>
+          <div class="spec"><span class="dot"></span>NVMe Storage</div>
+          <div class="spec"><span class="dot"></span>DDoS Protection</div>
+          <div class="spec"><span class="dot"></span>Locations: IN</div>
+        </div>
+        <div class="inc">
+          <span class="pill">Backups</span>
+          <span class="pill">Subdomain</span>
+          <span class="pill">Modpack Library</span>
+        </div>
+        <div class="cta">
+          <button class="btn" data-ram="6">See Details</button>
+          <button class="btn btn-primary" data-order="sapling">Order Now</button>
+        </div>
+      </div>
+
+      <!-- Oak (Pro) -->
+      <div class="card pro">
+        <div class="tag">PRO RECOMMENDED</div>
+        <div class="plan-media">
+          <img src="assets/plan-oak.jpg" alt="Oak Plan Art" loading="lazy">
+          <span class="plan-badge">Pro</span>
+        </div>
+        <div class="title">Oak</div>
+        <div class="price"><span class="amount" data-month="₹984" data-year="₹2952"></span><span class="per">/Plan</span></div>
+        <div class="specs">
+          <div class="spec"><span class="dot"></span>8 GB RAM</div>
+          <div class="spec"><span class="dot"></span>4v CORES</div>
+          <div class="spec"><span class="dot"></span>NVMe Storage</div>
+          <div class="spec"><span class="dot"></span>DDoS Protection</div>
+          <div class="spec"><span class="dot"></span>Locations: IN</div>
+        </div>
+        <div class="inc">
+          <span class="pill">24/7 Support</span>
+          <span class="pill">Custom JAR</span>
+          <span class="pill">Paper/Purpur</span>
+        </div>
+        <div class="cta">
+          <button class="btn" data-ram="12">See Details</button>
+          <button class="btn btn-primary" data-order="oak">Order Now</button>
+        </div>
+      </div>
+
+      <!-- Redwood -->
+      <div class="card">
+        <div class="plan-media">
+          <img src="assets/plan-redwood.jpg" alt="Redwood Plan Art" loading="lazy">
+          <span class="plan-badge">Enterprise</span>
+        </div>
+        <div class="title">Redwood</div>
+        <div class="price"><span class="amount" data-month="₹1968" data-year="₹5018"></span><span class="per">/GB</span></div>
+        <div class="specs">
+          <div class="spec"><span class="dot"></span>16 GB RAM</div>
+          <div class="spec"><span class="dot"></span>10V CORES</div>
+          <div class="spec"><span class="dot"></span>NVMe Storage</div>
+          <div class="spec"><span class="dot"></span>DDoS Protection</div>
+          <div class="spec"><span class="dot"></span>Locations: IN</div>
+        </div>
+        <div class="inc">
+          <span class="pill">Advanced DDoS</span>
+          <span class="pill">Schedule Tasks</span>
+          <span class="pill">Auto Restarts</span>
+        </div>
+        <div class="cta">
+          <button class="btn" data-ram="24">See Details</button>
+          <button class="btn btn-primary" data-order="redwood">Order Now</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- payment row -->
+    <div class="payments" style="margin-top:16px;">
+      <span class="sublabel" style="min-width:120px;">Payments Accepted</span>
+      <img src="https://pngimg.com/uploads/mastercard/mastercard_PNG23.png" alt="Mastercard">
+      <img src="https://tse1.mm.bing.net/th/id/OIP.YqP7flNCE1RSYJSW13DZMwAAAA?cb=12&w=474&h=248&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Visa">
+      <img src="https://tse4.mm.bing.net/th/id/OIP.8fGkf1VfyrZ95Xpna-mzZgHaEC?cb=12&w=1593&h=870&rs=1&pid=ImgDetMain&o=7&rm=3" alt="PayPal">
+      <img src="https://t3.ftcdn.net/jpg/05/60/50/16/360_F_560501607_x7crxqBWbmbgK2k8zOL0gICbIbK9hP6y.jpg" alt="UPI">
+      <img src="https://tse3.mm.bing.net/th/id/OIP.aeHvnFKyesLUoES72tc1owHaEc?cb=12&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Razorpay">
+    </div>
+  </section>
+
+  <!-- ===== Compare ===== -->
+  <section class="compare">
+    <h3>What you get with every plan</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Included</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Ryzen 9 5900XT Cores</td><td class="yes">Yes</td><td class="muted">High single-thread performance</td></tr>
+        <tr><td>PCIe 4.0 NVMe</td><td class="yes">Yes</td><td class="muted">Ultra-fast world saves & chunk loads</td></tr>
+        <tr><td>Premium DDoS</td><td class="yes">Yes</td><td class="muted">Always-on mitigation</td></tr>
+        <tr><td>Backups</td><td class="yes">Yes</td><td class="muted">1-click restore, daily snapshots</td></tr>
+        <tr><td>Modpack Installer</td><td class="yes">Yes</td><td class="muted">CurseForge, Paper/Purpur, Fabric</td></tr>
+        <tr><td>Hidden Fees</td><td class="no">No</td><td class="muted">Transparent per-GB pricing</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="faq">
+    <details class="qa"><summary>Which plan is right for me?</summary><p>Vanilla or small SMP? <strong>Sprout</strong>. Modded/Plugins (10-20 players)? <strong>Sapling/Oak</strong>. Heavy modpacks or 50+ players? <strong>Redwood</strong>.</p></details>
+    <details class="qa"><summary>Can I switch plans later?</summary><p>Yep — upgrade/downgrade anytime; billing adjusts pro-rata.</p></details>
+    <details class="qa"><summary>What locations are available?</summary><p>India (Mumbai), Singapore, EU (Warsaw/London), US (CA/VA/TX/FL). We route you to the nearest node by default.</p></details>
+    <details class="qa"><summary>Backups & support?</summary><p>Daily snapshots with 1-click restore. Support is 24/7 via ticket & Discord, with priority on Pro plans.</p></details>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    <div class="footer-inner container">
+      <div class="footer-bottom" style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <img src="assets/lumox.jpeg" alt="LumoxCloud" width="28" height="28" style="border-radius:6px;">
+          <strong>LUMOXCLOUD</strong> — Minecraft Hosting
+        </div>
+        <div class="footer-right">
+          <a href="privacy.html">Privacy</a>
+          <a href="terms&conditions.html">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+
+  <!-- Plans page logic -->
+  <script>
+    // billing toggle
+    const toggle = document.getElementById('billToggle');
+    const amounts = document.querySelectorAll('.amount');
+    function applyBilling(){
+      amounts.forEach(a=>{ a.textContent = toggle.checked ? a.dataset.year : a.dataset.month; });
+    }
+    toggle.addEventListener('change', applyBilling);
+    applyBilling();
+
+    // order buttons
+    document.querySelectorAll('[data-order]').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const plan = btn.dataset.order;
+        window.location.href = `Account.html?product=minecraft&plan=${encodeURIComponent(plan)}&cycle=${toggle.checked?'yearly':'monthly'}`;
+      });
+    });
+
+    // details buttons
+    document.querySelectorAll('.btn[data-ram]').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const ram = btn.dataset.ram;
+        alert(`Recommended RAM: ${ram} GB\nCPU: Ryzen 9 5900XT\nStorage: PCIe 4.0 NVMe\nIncludes: Backups, DDoS, Modpack Installer`);
+      });
+    });
+  </script>
+</body>
+</html>

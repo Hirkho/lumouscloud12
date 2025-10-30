@@ -1,141 +1,322 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>LumousCloud Login</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>LumoxCloud — Login / Signup</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:#041820;
+      --card:rgba(255,255,255,0.05);
+      --muted:#9fb7c1;
+      --ok:#2be3a6;
+      --danger:#ff6b6b;
+      --accent-grad:linear-gradient(90deg,#0bd3ff,#2be3a6);
+      --accent-text:#04202a;
+    }
 
-<style>
-  :root {
-    --accent:#7ed957;
-    --accent-dark:#4fa936;
-    --bg:#0b1220;
-    --glass:rgba(255,255,255,0.06);
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html,body{
-    height:100%;
-    background:radial-gradient(circle at center,#162a3d 0%,#0b1220 100%);
-    font-family:'Press Start 2P',monospace;
-    color:#e9ffe3;overflow:hidden;
-  }
-  .bg{position:absolute;inset:0;
-    background-image:linear-gradient(var(--accent)1px,transparent 1px),
-                     linear-gradient(90deg,var(--accent)1px,transparent 1px);
-    background-size:40px 40px;opacity:.05;
-    animation:scroll 20s linear infinite;}
-  @keyframes scroll{from{background-position:0 0,0 0}to{background-position:40px 40px,40px 40px}}
-  .center{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;}
-  .card{
-    width:340px;background:var(--glass);border:1px solid rgba(255,255,255,0.08);
-    border-radius:12px;padding:28px;backdrop-filter:blur(12px);
-    box-shadow:0 0 50px rgba(0,0,0,0.6),0 0 20px rgba(126,217,87,0.1);
-    animation:float 4s ease-in-out infinite;}
-  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
-  h1{text-align:center;font-size:14px;margin-bottom:20px;color:var(--accent);
-     text-shadow:0 0 8px rgba(126,217,87,0.6);}
-  form{display:flex;flex-direction:column;gap:12px}
-  input{
-    background:rgba(255,255,255,0.03);
-    border:1px solid rgba(255,255,255,0.08);
-    border-radius:6px;padding:12px;color:#e9ffe3;
-    font-family:inherit;font-size:11px;outline:none;transition:all .15s;}
-  input:focus{border-color:var(--accent);box-shadow:0 0 6px rgba(126,217,87,0.4);}
-  button{
-    background:linear-gradient(180deg,var(--accent),var(--accent-dark));
-    color:#071c09;border:0;border-radius:6px;padding:12px;cursor:pointer;
-    font-family:inherit;font-size:11px;letter-spacing:.5px;
-    transition:transform .1s,box-shadow .1s;
-    box-shadow:0 6px 14px rgba(126,217,87,0.2);}
-  button:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(126,217,87,0.3);}
-  button:active{transform:translateY(1px);}
-  .google{
-    background:#fff;color:#222;font-weight:700;
-    background-image:url('https://upload.wikimedia.org/wikipedia/commons/4/4a/Logo_2013_Google.png');
-    background-repeat:no-repeat;background-size:18px;background-position:12px center;
-    padding-left:38px;
-  }
-  .msg{margin-top:8px;min-height:16px;text-align:center;font-size:10px;color:#ffb3b3;}
-  .cube{position:absolute;width:40px;height:40px;
-    background:linear-gradient(180deg,var(--accent),var(--accent-dark));
-    left:50%;top:50%;transform:translate(-50%,-240px) rotate3d(1,1,0,45deg);
-    border-radius:4px;box-shadow:0 0 20px rgba(126,217,87,0.6);
-    animation:spin 8s linear infinite;}
-  @keyframes spin{to{transform:translate(-50%,-240px) rotate3d(1,1,0,405deg)}}
-</style>
+    *{box-sizing:border-box}
+    body {
+      margin:0;
+      font-family:"Poppins",sans-serif;
+      color:#fff;
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding:20px;
+
+      background: linear-gradient(180deg, rgba(2,18,26,0.8) 0%, rgba(4,24,32,0.9) 100%),
+                  url("https://i.pinimg.com/736x/64/dd/f7/64ddf776f0fde0cb809fb72674e7833f.jpg") no-repeat center center / cover;
+      background-attachment: fixed;
+    }
+
+    /* Back button */
+    .back-btn {
+      position: absolute;
+      top: 24px;
+      left: 24px;
+      padding: 8px 14px;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.06);
+      color: #fff;
+      cursor: pointer;
+      font-size: 14px;
+      transition: 0.2s;
+      backdrop-filter: blur(6px);
+    }
+    .back-btn:hover { background: rgba(255,255,255,0.14); }
+
+    .card {
+      background:var(--card);
+      padding:28px;
+      border-radius:14px;
+      max-width:380px;
+      width:100%;
+      text-align:center;
+      box-shadow:0 8px 40px rgba(0,0,0,0.6);
+      backdrop-filter:blur(8px);
+    }
+
+    h1 {
+      margin-top:0;
+      font-size:22px;
+      font-weight:700;
+    }
+
+    .lead {
+      color:var(--muted);
+      font-size:14px;
+      margin-bottom:20px;
+    }
+
+    input {
+      width:100%;
+      padding:12px 14px;
+      margin-top:10px;
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,0.08);
+      background:rgba(255,255,255,0.04);
+      color:#fff;
+      outline:none;
+      font-size:14px;
+    }
+
+    .btn-primary {
+      width:100%;
+      margin-top:18px;
+      padding:12px;
+      background:var(--accent-grad);
+      border:none;
+      border-radius:10px;
+      color:var(--accent-text);
+      font-weight:700;
+      font-size:15px;
+      cursor:pointer;
+    }
+
+    .btn-primary[disabled]{opacity:0.6;cursor:not-allowed}
+    .toggle-link, .link {
+      color:#9fb7c1;
+      font-size:13px;
+      cursor:pointer;
+      margin-top:10px;
+      display:inline-block;
+    }
+
+    .pwd-toggle {
+      position:absolute;
+      right:12px;
+      top:38px;
+      background:none;
+      border:none;
+      color:#9fb7c1;
+      cursor:pointer;
+      font-size:12px;
+    }
+
+    .field {
+      position:relative;
+      margin-bottom:10px;
+      text-align:left;
+    }
+
+    .strength {
+      height:8px;
+      background:rgba(255,255,255,0.06);
+      border-radius:5px;
+      overflow:hidden;
+      margin-top:6px;
+    }
+
+    .strength-bar {
+      height:100%;
+      width:0%;
+      background:linear-gradient(90deg,#ff6b6b,#ffb86b);
+      transition:width .3s;
+    }
+
+    .msg {
+      font-size:13px;
+      margin-top:8px;
+      color:var(--muted);
+      min-height:18px;
+    }
+
+    .toast {
+      position:fixed;
+      top:20px;
+      right:20px;
+      background:#06262a;
+      padding:12px 16px;
+      border-radius:8px;
+      color:#fff;
+      opacity:0;
+      transition:opacity .2s;
+      z-index:9999;
+    }
+    .toast.show {opacity:1;}
+  </style>
 </head>
 <body>
-<div class="bg"></div>
-<div class="cube"></div>
 
-<div class="center">
+  <!-- Back button -->
+  <button id="backBtn" class="back-btn" aria-label="Go back">← Back</button>
+
   <div class="card">
-    <h1>LUMOUSCLOUD</h1>
-    <form onsubmit="return false;">
-      <input id="email" type="email" placeholder="Email" required>
-      <input id="password" type="password" placeholder="Password" required>
-      <button id="loginBtn" type="button">LOGIN</button>
-      <button id="signupBtn" type="button">SIGN UP</button>
-      <button id="googleBtn" type="button" class="google">Sign in with Google</button>
-      <div class="msg" id="msg"></div>
-    </form>
+    <h1 id="formTitle">Create Account</h1>
+    <div class="lead">Sign up or log in to access Lumox Cloud services.</div>
+
+    <div class="field">
+      <label>Email</label>
+      <input id="email" type="email" placeholder="lumoxcloud@example.com" />
+    </div>
+
+    <div class="field">
+      <label>Password</label>
+      <input id="password" type="password" placeholder="Enter password" />
+      <button type="button" class="pwd-toggle" id="togglePwd">Show</button>
+      <div class="strength"><div id="strengthBar" class="strength-bar"></div></div>
+    </div>
+
+    <button class="btn-primary" id="actionBtn">Sign Up</button>
+
+    <div class="toggle-link" id="toggleMode">Already have an account? Login</div>
+    <div class="link" id="forgot">Forgot Password?</div>
+
+    <div class="msg" id="msg"></div>
   </div>
-</div>
 
-<script type="module">
-import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
+  <div class="toast" id="toast"></div>
 
-// === REPLACE WITH YOUR OWN PROJECT VALUES ===
-const SUPABASE_URL = "https://ajnrdilvrfkpdzmkfjng.supabase.co";
-const SUPABASE_ANON = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFqbnJkaWx2cmZrcGR6bWtmam5nIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTk4MzEwMzQsImV4cCI6MjA3NTQwNzAzNH0.V8mCR1M_t6KLn8snUzZiBnqMcjpPPM7_Sp2sz0CS1xw";
-const REDIRECT_AFTER_LOGIN = "/"; // e.g. "/dashboard.html"
-// =============================================
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/supabase.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // === REPLACE THESE WITH YOUR SUPABASE VALUES ===
+      const SUPABASE_URL = "https://ajnrdilvrfkpdzmkfjng.supabase.co";
+      const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFqbnJkaWx2cmZrcGR6bWtmam5nIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTk4MzEwMzQsImV4cCI6MjA3NTQwNzAzNH0.V8mCR1M_t6KLn8snUzZiBnqMcjpPPM7_Sp2sz0CS1xw";
+      // ==============================================
 
-const supabase = createClient(SUPABASE_URL, SUPABASE_ANON);
-const email = document.getElementById('email');
-const password = document.getElementById('password');
-const msg = document.getElementById('msg');
+      if (typeof supabase === 'undefined' || typeof supabase.createClient !== 'function') {
+        console.error('Supabase client not available. Make sure the bunded script is loaded (UMD).');
+        const toast = document.getElementById('toast');
+        toast.textContent = 'Failed to load Supabase. Check console.';
+        toast.classList.add('show');
+        setTimeout(()=>toast.classList.remove('show'),3000);
+        return;
+      }
 
-function show(t, err=false){ msg.style.color = err? '#ffb3b3' : '#caffc3'; msg.textContent = t; }
+      const client = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-async function handleLogin(){
-  show('');
-  const { error } = await supabase.auth.signInWithPassword({ email:email.value.trim(), password:password.value.trim() });
-  if(error){ show(error.message,true); return; }
-  show('Welcome back!'); setTimeout(()=>location.href=REDIRECT_AFTER_LOGIN,700);
-}
+      const emailEl = document.getElementById('email');
+      const passEl = document.getElementById('password');
+      const togglePwd = document.getElementById('togglePwd');
+      const strengthBar = document.getElementById('strengthBar');
+      const formTitle = document.getElementById('formTitle');
+      const actionBtn = document.getElementById('actionBtn');
+      const toggleMode = document.getElementById('toggleMode');
+      const forgot = document.getElementById('forgot');
+      const msg = document.getElementById('msg');
+      const toast = document.getElementById('toast');
+      const backBtn = document.getElementById('backBtn');
 
-async function handleSignup(){
-  show('');
-  const { error } = await supabase.auth.signUp({ email:email.value.trim(), password:password.value.trim() });
-  if(error){ show(error.message,true); return; }
-  show('Check your email to confirm!');
-}
+      let isLogin = false;
 
-// ---- Google OAuth ----
-async function handleGoogle(){
-  show('Redirecting to Google…');
-  const { data, error } = await supabase.auth.signInWithOAuth({
-    provider: 'google',
-    options: { redirectTo: window.location.origin + REDIRECT_AFTER_LOGIN }
-  });
-  if(error){ show(error.message,true); console.error(error); }
-}
+      // === Back button ===
+      backBtn.onclick = () => {
+        if (document.referrer) history.back();
+        else window.location.href = "index.html"; // fallback
+      };
 
-document.getElementById('loginBtn').onclick = handleLogin;
-document.getElementById('signupBtn').onclick = handleSignup;
-document.getElementById('googleBtn').onclick = handleGoogle;
+      // === Password strength ===
+      function calcStrength(p) {
+        let s=0;
+        if(p.length>7)s++;
+        if(/[A-Z]/.test(p))s++;
+        if(/[0-9]/.test(p))s++;
+        if(/[^A-Za-z0-9]/.test(p))s++;
+        return s;
+      }
 
-// already signed in? -> redirect
-(async()=>{
-  const s = await supabase.auth.getSession();
-  if(s?.data?.session){
-    show('Redirecting...');
-    setTimeout(()=>location.href=REDIRECT_AFTER_LOGIN,500);
-  }
-})();
-</script>
+      passEl.addEventListener('input',()=>{
+        const val = passEl.value;
+        const s = calcStrength(val);
+        const w = (s/4)*100;
+        strengthBar.style.width = w+"%";
+        if(s<=1) strengthBar.style.background="linear-gradient(90deg,#ff6b6b,#ff914d)";
+        else if(s==2) strengthBar.style.background="linear-gradient(90deg,#ffd36b,#ffec6b)";
+        else strengthBar.style.background="linear-gradient(90deg,#0bd3ff,#2be3a6)";
+      });
+
+      togglePwd.onclick = ()=> {
+        if(passEl.type==="password"){passEl.type="text";togglePwd.textContent="Hide";}
+        else{passEl.type="password";togglePwd.textContent="Show";}
+      };
+
+      toggleMode.onclick = ()=> {
+        isLogin = !isLogin;
+        formTitle.textContent = isLogin ? "Login to Your Account" : "Create Account";
+        actionBtn.textContent = isLogin ? "Login" : "Sign Up";
+        toggleMode.textContent = isLogin ? "Don't have an account? Sign Up" : "Already have an account? Login";
+        msg.textContent = "";
+      };
+
+      function showMsg(t,color){msg.style.color=color||'#9fb7c1';msg.textContent=t;}
+      function showToast(text){
+        toast.textContent=text;
+        toast.classList.add('show');
+        setTimeout(()=>toast.classList.remove('show'),2500);
+      }
+
+      // === Main Auth ===
+      actionBtn.onclick = async()=>{
+        const email=emailEl.value.trim();
+        const password=passEl.value.trim();
+        if(!email||!password) return showMsg("Enter email and password","#ff6b6b");
+
+        showMsg("Please wait...","#9fb7c1");
+        actionBtn.disabled=true;
+
+        try{
+          if(isLogin){
+            const { error } = await client.auth.signInWithPassword({email,password});
+            if(error) throw error;
+            showMsg("Login successful","#2be3a6");
+            showToast("Welcome back!");
+            setTimeout(()=>window.location.href="index.html",1000);
+          } else {
+            const { error } = await client.auth.signUp({email,password});
+            if(error) throw error;
+            showMsg("Signup successful! Check email for verification","#2be3a6");
+            showToast("Account created!");
+          }
+        }catch(e){
+          console.error(e);
+          showMsg(e.message || String(e),"#ff6b6b");
+        }finally{
+          actionBtn.disabled=false;
+        }
+      };
+
+      // === Forgot Password ===
+      forgot.onclick = async()=>{
+        const email=emailEl.value.trim();
+        if(!email) return showMsg("Enter your email first","#ff6b6b");
+        showMsg("Sending reset link...","#9fb7c1");
+        try{
+          await client.auth.resetPasswordForEmail(email,{redirectTo:window.location.origin+"/update-password.html"});
+          showMsg("Reset link sent! Check your email","#2be3a6");
+        }catch(e){
+          console.error(e);
+          showMsg(e.message || String(e),"#ff6b6b");
+        }
+      };
+    });
+  </script>
+
 </body>
 </html>
